@@ -13,6 +13,7 @@
 		28378ABB1B8D0CB000AC342A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28378ABA1B8D0CB000AC342A /* Images.xcassets */; };
 		28378ABE1B8D0CB000AC342A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28378ABC1B8D0CB000AC342A /* LaunchScreen.xib */; };
 		28378ACA1B8D0CB000AC342A /* TrailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28378AC91B8D0CB000AC342A /* TrailsTests.swift */; };
+		28378AD81B8D21FB00AC342A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28378AD71B8D21FB00AC342A /* HomeViewController.swift */; };
 		401E4A69C82BC2024ACBCB64 /* Pods_Trails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		28378AC31B8D0CB000AC342A /* TrailsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrailsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28378AC81B8D0CB000AC342A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28378AC91B8D0CB000AC342A /* TrailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailsTests.swift; sourceTree = "<group>"; };
+		28378AD71B8D21FB00AC342A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B483CCEBD082EDB20144BF43 /* Pods-Trails.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 		28378AB01B8D0CB000AC342A /* Trails */ = {
 			isa = PBXGroup;
 			children = (
+				28378AD61B8D21B800AC342A /* Controllers */,
 				28378AB31B8D0CB000AC342A /* AppDelegate.swift */,
 				28378AB51B8D0CB000AC342A /* ViewController.swift */,
 				28378AB71B8D0CB000AC342A /* Main.storyboard */,
@@ -117,6 +120,14 @@
 				28378AC81B8D0CB000AC342A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28378AD61B8D21B800AC342A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				28378AD71B8D21FB00AC342A /* HomeViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		3058B5F6A8388AF7A0817AC7 /* Frameworks */ = {
@@ -289,6 +300,7 @@
 			files = (
 				28378AB61B8D0CB000AC342A /* ViewController.swift in Sources */,
 				28378AB41B8D0CB000AC342A /* AppDelegate.swift in Sources */,
+				28378AD81B8D21FB00AC342A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
