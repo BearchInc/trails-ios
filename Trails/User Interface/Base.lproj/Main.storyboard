@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="a31-Ov-Wbd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Lk0-48-LlC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -36,10 +36,11 @@
                             <constraint firstItem="DPF-27-wUl" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="nVo-AM-atk"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="BRC-DT-yZT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1556" y="280"/>
+            <point key="canvasLocation" x="1542" y="321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kHk-vc-Q8L">
@@ -50,12 +51,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Lk0-48-LlC" kind="relationship" relationship="rootViewController" id="B5o-ls-Ir7"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="2FE-oq-agj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WyA-Ld-pgw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="280"/>
+            <point key="canvasLocation" x="855" y="321"/>
         </scene>
         <!--Startup View Controller-->
         <scene sceneID="zYB-Cx-Dc4">
@@ -72,12 +73,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="y2Y-zu-ath"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="show" identifier="GoToHomeViewController" id="Q9S-qc-F4n"/>
+                        <segue destination="a31-Ov-Wbd" kind="presentation" identifier="GoToHomeViewController" modalTransitionStyle="crossDissolve" id="OEL-2c-v9S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2k-LV-Jls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="864" y="280"/>
+            <point key="canvasLocation" x="165" y="315"/>
         </scene>
     </scenes>
 </document>
