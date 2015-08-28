@@ -5,7 +5,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        println(Account.instance)
+
         // Verify user is logged into Dropbox
         if let client = Dropbox.authorizedClient {
             

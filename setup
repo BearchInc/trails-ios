@@ -1,0 +1,7 @@
+#!/bin/sh
+echo "Creating Ip address..."
+ruby ip_address.rb
+echo
+
+echo "Installing Pods..."
+pod install

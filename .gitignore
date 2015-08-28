@@ -34,3 +34,6 @@ Carthage/Build
 
 # Idea files
 .idea/***
+
+#Ip Address
+Trails/Models/IPAddress.swift

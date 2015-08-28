@@ -10,8 +10,10 @@ class Account : Mappable {
     var email: String!
     var authToken: String!
 
+    static let instance = Account()
+
     class func newInstance(map: Map) -> Mappable? {
-        return Account()
+        return instance
     }
 
     func mapping(map: Map) {
@@ -22,10 +24,10 @@ class Account : Mappable {
         authToken <- map["auth_token"]
     }
 
-    class func login(completionHandler: ([Account]?, NSError?) -> ()) {
+    class func login(completionHandler: (Account?, NSError?) -> ()) {
         let loginParams = ["id": "MunjalTesting"]
         Alamofire.request(.POST, Config.loginPath(), parameters: loginParams, encoding: .JSON)
-            .responseArray(completionHandler)
+            .responseObject(completionHandler)
     }
 
 }
