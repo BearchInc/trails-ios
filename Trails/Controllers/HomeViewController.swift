@@ -10,13 +10,19 @@ class HomeViewController: UIViewController {
 
         // Verify user is logged into Dropbox
         if let client = Dropbox.authorizedClient {
+            let userId = DropboxAuthManager.sharedAuthManager.getAllAccessTokens().keys.first!
+            let authToken = DropboxAuthManager.sharedAuthManager.getAccessToken(user: userId)
+//            DropboxAuthManager.sharedAuthManager
+//            Account.instance.registerDropbox(, DropboxAuthManager.sharedAuthManager.getFirstAccessToken()!.description)
             
-            //Dropbox.unlinkClient()
+            Account.instance.registerDropbox(userId, accessToken: authToken!.description)
+            
             
             // Get the current user's account info
             client.usersGetCurrentAccount().response { response, error in
-                if let account = response {
-                    println("Hello \(account.name.givenName)")
+                if let dropboxAccount = response {
+                    
+                    Account.instance.update(dropboxAccount)
                 } else {
                     println(error!)
                 }

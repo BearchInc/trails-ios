@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		281C9E531B90EECF00233380 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281C9E521B90EECF00233380 /* ApiClient.swift */; };
 		28378AB41B8D0CB000AC342A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28378AB31B8D0CB000AC342A /* AppDelegate.swift */; };
 		28378AB61B8D0CB000AC342A /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28378AB51B8D0CB000AC342A /* StartupViewController.swift */; };
 		28378AB91B8D0CB000AC342A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28378AB71B8D0CB000AC342A /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		0BC8BB43DA2FB7DFAF13699F /* Pods-Trails.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.debug.xcconfig"; sourceTree = "<group>"; };
+		281C9E521B90EECF00233380 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		28378AAE1B8D0CB000AC342A /* Trails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trails.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28378AB21B8D0CB000AC342A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28378AB31B8D0CB000AC342A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				C0A49199C2A83B86B50FFB98 /* Account.swift */,
 				C0A49A5C0DCDA50B171019AD /* Config.swift */,
 				C0A493E480EAD96391520E39 /* IPAddress.swift */,
+				281C9E521B90EECF00233380 /* ApiClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				281C9E531B90EECF00233380 /* ApiClient.swift in Sources */,
 				28378AB61B8D0CB000AC342A /* StartupViewController.swift in Sources */,
 				28378AB41B8D0CB000AC342A /* AppDelegate.swift in Sources */,
 				28378AD81B8D21FB00AC342A /* HomeViewController.swift in Sources */,

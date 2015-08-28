@@ -2,6 +2,7 @@ import Foundation
 import AlamofireObjectMapper
 import Alamofire
 import ObjectMapper
+import SwiftyDropbox
 
 class Account : Mappable {
     var id: String!
@@ -26,8 +27,31 @@ class Account : Mappable {
 
     class func login(completionHandler: (Account?, NSError?) -> ()) {
         let loginParams = ["id": "MunjalTesting"]
-        Alamofire.request(.POST, Config.loginPath(), parameters: loginParams, encoding: .JSON)
+        Alamofire.request(.POST, Config.path(.Login), parameters: loginParams, encoding: .JSON)
             .responseObject(completionHandler)
+    }
+
+    func update(dropboxAccount: Users.FullAccount) {
+        firstName = dropboxAccount.name.givenName
+        lastName = dropboxAccount.name.surname
+        email = dropboxAccount.email
+        
+        let accountParams = Mapper().toJSON(self)
+        ApiClient.request(.POST, path: .UpdateAccount, params: accountParams).response {
+            (_, response: NSHTTPURLResponse?, _, error) -> Void in
+            if (response?.statusCode >= 400) {
+                println("You are fucked - cannot update account")
+            }
+        }
+    }
+    
+    func registerDropbox(userId: String, accessToken: String) {
+        ApiClient.request(.POST, path: .RegisterDropbox, params: ["user_id": userId, "access_token": accessToken]).response {
+        (_, response: NSHTTPURLResponse?, _, error) -> Void in
+            if (response?.statusCode >= 400) {
+                println("You are fucked - cannot register dropbox")
+            }
+        }
     }
 
 }
