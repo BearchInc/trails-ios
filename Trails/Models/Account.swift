@@ -65,7 +65,7 @@ class Account : Mappable {
         ApiClient.request(.POST, path: .UpdateAccount, params: accountParams).response {
             (_, response: NSHTTPURLResponse?, _, error) -> Void in
             if (response?.statusCode >= 400) {
-                println("You are fucked - cannot update account")
+                println("Unable to update the account")
             }
         }
     }
@@ -74,7 +74,7 @@ class Account : Mappable {
         ApiClient.request(.POST, path: .RegisterDropbox, params: ["user_id": userId, "access_token": accessToken]).response {
         (_, response: NSHTTPURLResponse?, _, error) -> Void in
             if (response?.statusCode >= 400) {
-                println("You are fucked - cannot register dropbox")
+                println("Unable to register dropbox")
             }
         }
     }
