@@ -56,6 +56,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-Trails/AlamofireObjectMapper.framework'
   install_framework 'Pods-Trails/ObjectMapper.framework'
   install_framework 'Pods-Trails/SDWebImage.framework'
+  install_framework 'Pods-Trails/SSKeychain.framework'
   install_framework 'Pods-Trails/SwiftyDropbox.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -63,5 +64,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-Trails/AlamofireObjectMapper.framework'
   install_framework 'Pods-Trails/ObjectMapper.framework'
   install_framework 'Pods-Trails/SDWebImage.framework'
+  install_framework 'Pods-Trails/SSKeychain.framework'
   install_framework 'Pods-Trails/SwiftyDropbox.framework'
 fi

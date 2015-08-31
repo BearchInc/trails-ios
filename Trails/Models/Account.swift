@@ -3,8 +3,14 @@ import AlamofireObjectMapper
 import Alamofire
 import ObjectMapper
 import SwiftyDropbox
+import AdSupport
+import SSKeychain
 
 class Account : Mappable {
+    let KEYCHAIN_SERVICE_NAME = "com.bearch.Hashtag"
+    let KEYCHAIN_ACCOUNT_ID_KEY = "KEYCHAIN_ACCOUNT_ID_KEY"
+    let USER_DEFAULTS_ACCOUNT_KEY = "ACCOUNT_KEY"
+    
     var id: String!
     var firstName: String!
     var lastName: String!
@@ -25,11 +31,30 @@ class Account : Mappable {
         authToken <- map["auth_token"]
     }
 
-    class func login(completionHandler: (Account?, NSError?) -> ()) {
-        let loginParams = ["id": "MunjalTesting"]
+    func login(completionHandler: (Account?, NSError?) -> ()) {
+        let loginParams = ["id": retrieveAccountId()]
         Alamofire.request(.POST, Config.path(.Login), parameters: loginParams, encoding: .JSON)
             .responseObject(completionHandler)
     }
+    
+    private func retrieveAccountId() -> String {
+        var accountId = retrieveAccountIdFromKeychain()
+        if accountId == nil {
+            accountId = createAccountId()
+        }
+        return accountId!
+    }
+
+    private func retrieveAccountIdFromKeychain() -> String? {
+        return SSKeychain.passwordForService(NSBundle.mainBundle().bundleIdentifier, account: KEYCHAIN_ACCOUNT_ID_KEY)
+    }
+    
+    private func createAccountId() -> String {
+        let accountId = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
+        SSKeychain.setPassword(accountId, forService: NSBundle.mainBundle().bundleIdentifier, account: KEYCHAIN_ACCOUNT_ID_KEY)
+        return accountId
+    }
+
 
     func update(dropboxAccount: Users.FullAccount) {
         firstName = dropboxAccount.name.givenName

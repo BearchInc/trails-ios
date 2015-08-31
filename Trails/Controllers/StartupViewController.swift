@@ -8,7 +8,7 @@ class StartupViewController: UIViewController {
     }
 
     private func login() {
-        Account.login { (account, error) -> () in
+        Account.instance.login { (account, error) -> () in
             if error == nil {
                 println(account)
                 self.navigateToHomeViewController()

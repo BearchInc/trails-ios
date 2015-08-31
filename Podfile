@@ -11,4 +11,6 @@ target :Trails do
     pod 'SDWebImage', '~>3.7'
     pod 'SwiftyDropbox', :git => 'git@github.com:BearchInc/SwiftyDropbox.git'
     pod 'AlamofireObjectMapper', '~> 0.7'
+    
+    pod 'SSKeychain', '1.2.3'
 end
