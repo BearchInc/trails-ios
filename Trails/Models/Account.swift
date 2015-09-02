@@ -8,8 +8,8 @@ import SSKeychain
 
 class Account : Mappable {
     let KEYCHAIN_SERVICE_NAME = "com.bearch.Hashtag"
-    let KEYCHAIN_ACCOUNT_ID_KEY = "KEYCHAIN_ACCOUNT_ID_KEY"
-    let USER_DEFAULTS_ACCOUNT_KEY = "ACCOUNT_KEY"
+    let KEYCHAIN_ACCOUNT_ID_KEY = "HashtagAccountId"
+    let USER_DEFAULTS_ACCOUNT_KEY = "HashtagAccountKey"
     
     var id: String!
     var firstName: String!
