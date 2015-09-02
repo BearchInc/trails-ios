@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyDropbox:
-    :commit: 63cc8cb7619fd5b162d0d692bbbf37ae574a291b
+    :commit: e5cba4f5667b877e7012cda4c0833fb90db2cc1c
     :git: git@github.com:BearchInc/SwiftyDropbox.git
 
 SPEC CHECKSUMS:
