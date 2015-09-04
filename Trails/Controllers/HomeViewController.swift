@@ -4,12 +4,11 @@ import SwiftyDropbox
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var toggleDropboxLink: UIBarButtonItem!
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
+    override func viewDidAppear(animated: Bool) {
         verifyDropboxAuthorization()
     }
-
+    
     func verifyDropboxAuthorization() {
         if let authorizedClient = Dropbox.authorizedClient {
             toggleDropboxLink.title = "Unlink from Dropbox"
