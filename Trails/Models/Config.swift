@@ -3,7 +3,7 @@ import Foundation
 
 class Config {
     enum Key: Int {
-        case BaseUrl
+        case BaseUrl, Fabric
     }
     
     enum Paths: String {
@@ -11,8 +11,33 @@ class Config {
         case RegisterDropbox = "account/registerDropbox"
         case UpdateAccount = "account/update"
     }
-
+    
+    private static let dev: [Key: String] = [
+        .BaseUrl: "http://" + SERVER_IP + ":8080",
+        .Fabric: ""
+    ]
+    
+    private static let staging: [Key: String] = [
+        .BaseUrl: "https://trails-dot-staging-api-getunseen.appspot.com",
+        .Fabric: "staging-fabric"
+    ]
+    
+    private static let appstore: [Key: String] = [
+        .BaseUrl: "https://trails-dot-api-getunseen.appspot.com",
+        .Fabric: "production-fabric"
+    ]
+    
+    private static let configurations = [
+        "dev": dev,
+        "staging": staging,
+        "appstore": appstore
+    ]
+    
     class func path(path: Paths) -> String {
-        return "http://" + SERVER_IP + ":8080/" + path.rawValue
+        return get(Key.BaseUrl) + "/" + path.rawValue
+    }
+    
+    class func get(key: Key) -> String {
+        return configurations[FLAVOR]![key]!
     }
 }
