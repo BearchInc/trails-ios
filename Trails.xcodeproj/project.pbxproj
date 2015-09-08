@@ -14,6 +14,7 @@
 		28378ABB1B8D0CB000AC342A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28378ABA1B8D0CB000AC342A /* Images.xcassets */; };
 		28378ACA1B8D0CB000AC342A /* TrailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28378AC91B8D0CB000AC342A /* TrailsTests.swift */; };
 		28378AD81B8D21FB00AC342A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28378AD71B8D21FB00AC342A /* HomeViewController.swift */; };
+		283835F51B9F5FE300D89FA6 /* TrailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283835F41B9F5FE300D89FA6 /* TrailView.swift */; };
 		401E4A69C82BC2024ACBCB64 /* Pods_Trails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A49199C2A83B86B50FFB98 /* Account.swift */; };
 		C0A49A4A03F86C2427F44508 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A493E480EAD96391520E39 /* IPAddress.swift */; };
@@ -44,6 +45,7 @@
 		28378AC81B8D0CB000AC342A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28378AC91B8D0CB000AC342A /* TrailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailsTests.swift; sourceTree = "<group>"; };
 		28378AD71B8D21FB00AC342A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		283835F41B9F5FE300D89FA6 /* TrailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailView.swift; sourceTree = "<group>"; };
 		28EDEA4F1B9A13AA000BFFA7 /* Trails-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trails-Bridging-Header.h"; sourceTree = "<group>"; };
 		762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		979B2078E3859F740B3CA27D /* Pods-Trails.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.staging.xcconfig"; sourceTree = "<group>"; };
@@ -141,10 +143,27 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		284B4D2F1B9095C5009AAE92 /* User Interface */ = {
+		283835F11B9F5EE700D89FA6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				283835F41B9F5FE300D89FA6 /* TrailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		283835F61B9F601C00D89FA6 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
 				28378AB71B8D0CB000AC342A /* Main.storyboard */,
+			);
+			path = Nibs;
+			sourceTree = "<group>";
+		};
+		284B4D2F1B9095C5009AAE92 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				283835F61B9F601C00D89FA6 /* Nibs */,
+				283835F11B9F5EE700D89FA6 /* Views */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -181,9 +200,9 @@
 			isa = PBXGroup;
 			children = (
 				C0A49199C2A83B86B50FFB98 /* Account.swift */,
+				281C9E521B90EECF00233380 /* ApiClient.swift */,
 				C0A49A5C0DCDA50B171019AD /* Config.swift */,
 				C0A493E480EAD96391520E39 /* IPAddress.swift */,
-				281C9E521B90EECF00233380 /* ApiClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -340,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				281C9E531B90EECF00233380 /* ApiClient.swift in Sources */,
+				283835F51B9F5FE300D89FA6 /* TrailView.swift in Sources */,
 				28378AB61B8D0CB000AC342A /* StartupViewController.swift in Sources */,
 				28378AB41B8D0CB000AC342A /* AppDelegate.swift in Sources */,
 				28378AD81B8D21FB00AC342A /* HomeViewController.swift in Sources */,
@@ -492,6 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FLAVOR = "\\\"appstore\\\"";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -591,8 +612,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FLAVOR = "\\\"staging\\\"";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
