@@ -11,6 +11,10 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     @IBOutlet weak var kolodaView: TrailView!
     @IBOutlet weak var toggleDropboxLink: UIBarButtonItem!
 
+    override func viewDidLoad() {
+        showTrails()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         if verifyDropboxAuthorization() {
 //            showTrails()
@@ -39,7 +43,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     
     //MARK: KolodaViewDataSource
     func kolodaNumberOfCards(koloda: KolodaView) -> UInt {
-        return 0
+        return 5
     }
     
     func kolodaViewForCardAtIndex(koloda: KolodaView, index: UInt) -> UIView {

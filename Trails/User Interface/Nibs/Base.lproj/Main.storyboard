@@ -18,21 +18,47 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPt-lh-wEg" customClass="TrailView" customModule="Trails" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFL-0w-eyg">
+                                        <rect key="frame" x="214" y="500" width="34" height="34"/>
+                                        <state key="normal" image="ic_skip">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="leftButtonTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AvY-en-xVO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ps-jz-T85">
+                                        <rect key="frame" x="349" y="501" width="38" height="34"/>
+                                        <state key="normal" image="ic_like">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rightButtonTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0aN-6u-R2J"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.54587374078767081" blue="0.45554426111103241" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="BRC-DT-yZT">
-                        <barButtonItem key="leftBarButtonItem" title="Link Dropbox" id="wxQ-Yb-3Dc">
+                        <barButtonItem key="leftBarButtonItem" title="Link Dropbox" id="Q6L-Dz-oBT">
                             <connections>
-                                <action selector="didTapDropboxLink:" destination="vXZ-lx-hvc" id="Uwk-W9-aGH"/>
+                                <action selector="didTapDropboxLink:" destination="vXZ-lx-hvc" id="nzq-t3-Hq5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ic_undo" id="YkT-B7-qg5">
+                            <connections>
+                                <action selector="undoButtonTapped" destination="vXZ-lx-hvc" id="vs9-Il-ymf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="kolodaView" destination="jPt-lh-wEg" id="veP-RQ-3zj"/>
-                        <outlet property="toggleDropboxLink" destination="wxQ-Yb-3Dc" id="1AL-PX-fR4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -78,4 +104,9 @@
             <point key="canvasLocation" x="165" y="315"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_like" width="38" height="34"/>
+        <image name="ic_skip" width="34" height="34"/>
+        <image name="ic_undo" width="21" height="21"/>
+    </resources>
 </document>

@@ -17,6 +17,8 @@
 		283835F51B9F5FE300D89FA6 /* TrailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283835F41B9F5FE300D89FA6 /* TrailView.swift */; };
 		283835F81B9F6C0500D89FA6 /* Trail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283835F71B9F6C0500D89FA6 /* Trail.swift */; };
 		283835FA1B9F795500D89FA6 /* LocationTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283835F91B9F795500D89FA6 /* LocationTransform.swift */; };
+		283835FC1B9F890D00D89FA6 /* CustomOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283835FB1B9F890D00D89FA6 /* CustomOverlayView.xib */; };
+		283835FE1B9F896E00D89FA6 /* CustomOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283835FD1B9F896E00D89FA6 /* CustomOverlayView.swift */; };
 		401E4A69C82BC2024ACBCB64 /* Pods_Trails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A49199C2A83B86B50FFB98 /* Account.swift */; };
 		C0A49A4A03F86C2427F44508 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A493E480EAD96391520E39 /* IPAddress.swift */; };
@@ -50,6 +52,8 @@
 		283835F41B9F5FE300D89FA6 /* TrailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailView.swift; sourceTree = "<group>"; };
 		283835F71B9F6C0500D89FA6 /* Trail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trail.swift; sourceTree = "<group>"; };
 		283835F91B9F795500D89FA6 /* LocationTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTransform.swift; sourceTree = "<group>"; };
+		283835FB1B9F890D00D89FA6 /* CustomOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOverlayView.xib; sourceTree = "<group>"; };
+		283835FD1B9F896E00D89FA6 /* CustomOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOverlayView.swift; sourceTree = "<group>"; };
 		28EDEA4F1B9A13AA000BFFA7 /* Trails-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trails-Bridging-Header.h"; sourceTree = "<group>"; };
 		762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		979B2078E3859F740B3CA27D /* Pods-Trails.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.staging.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		283835F11B9F5EE700D89FA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				283835FD1B9F896E00D89FA6 /* CustomOverlayView.swift */,
 				283835F41B9F5FE300D89FA6 /* TrailView.swift */,
 			);
 			path = Views;
@@ -158,6 +163,7 @@
 		283835F61B9F601C00D89FA6 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				283835FB1B9F890D00D89FA6 /* CustomOverlayView.xib */,
 				28378AB71B8D0CB000AC342A /* Main.storyboard */,
 			);
 			path = Nibs;
@@ -299,6 +305,7 @@
 			files = (
 				28378AB91B8D0CB000AC342A /* Main.storyboard in Resources */,
 				28378ABB1B8D0CB000AC342A /* Images.xcassets in Resources */,
+				283835FC1B9F890D00D89FA6 /* CustomOverlayView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +378,7 @@
 				283835F81B9F6C0500D89FA6 /* Trail.swift in Sources */,
 				283835FA1B9F795500D89FA6 /* LocationTransform.swift in Sources */,
 				28378AD81B8D21FB00AC342A /* HomeViewController.swift in Sources */,
+				283835FE1B9F896E00D89FA6 /* CustomOverlayView.swift in Sources */,
 				C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */,
 				C0A49BD7A3C9CAD82FED24E3 /* Config.swift in Sources */,
 				C0A49A4A03F86C2427F44508 /* IPAddress.swift in Sources */,
