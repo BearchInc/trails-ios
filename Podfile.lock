@@ -7,7 +7,10 @@ PODS:
   - Fabric (1.2.8):
     - Fabric/Base (= 1.2.8)
   - Fabric/Base (1.2.8)
+  - Koloda (1.1.2):
+    - pop (~> 1.0)
   - ObjectMapper (0.15)
+  - pop (1.0.7)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -19,6 +22,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper (~> 0.7)
   - Crashlytics (~> 3.1.0)
   - Fabric (~> 1.2.8)
+  - Koloda (~> 1.1.2)
   - SDWebImage (~> 3.7)
   - SSKeychain (= 1.2.3)
   - SwiftyDropbox (from `git@github.com:BearchInc/SwiftyDropbox.git`)
@@ -37,7 +41,9 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: b07339a5ce5f609230df61080e55c1f6fc9551ee
   Crashlytics: 39ab395565bc03c29cdecd2b9d103ebf30930c10
   Fabric: a9eabe53915e9f1db55a84dd2838737928675878
+  Koloda: 19b54bfb56c3b9e4e946c750b1c3bc771298d7ca
   ObjectMapper: 0656dc1c155825897e5acfcd25362c6b61786dcb
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
   SwiftyDropbox: 970f202071215a75bc47b775407df56a52ea4188

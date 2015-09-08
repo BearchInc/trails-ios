@@ -13,4 +13,5 @@ target :Trails do
     pod 'AlamofireObjectMapper', '~> 0.7'
     
     pod 'SSKeychain', '1.2.3'
+    pod 'Koloda', '~> 1.1.2'
 end

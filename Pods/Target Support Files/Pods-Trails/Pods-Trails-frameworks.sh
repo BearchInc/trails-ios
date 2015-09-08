@@ -54,24 +54,30 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Dev" ]]; then
   install_framework 'Pods-Trails/Alamofire.framework'
   install_framework 'Pods-Trails/AlamofireObjectMapper.framework'
+  install_framework 'Pods-Trails/Koloda.framework'
   install_framework 'Pods-Trails/ObjectMapper.framework'
   install_framework 'Pods-Trails/SDWebImage.framework'
   install_framework 'Pods-Trails/SSKeychain.framework'
   install_framework 'Pods-Trails/SwiftyDropbox.framework'
+  install_framework 'Pods-Trails/pop.framework'
 fi
 if [[ "$CONFIGURATION" == "Staging" ]]; then
   install_framework 'Pods-Trails/Alamofire.framework'
   install_framework 'Pods-Trails/AlamofireObjectMapper.framework'
+  install_framework 'Pods-Trails/Koloda.framework'
   install_framework 'Pods-Trails/ObjectMapper.framework'
   install_framework 'Pods-Trails/SDWebImage.framework'
   install_framework 'Pods-Trails/SSKeychain.framework'
   install_framework 'Pods-Trails/SwiftyDropbox.framework'
+  install_framework 'Pods-Trails/pop.framework'
 fi
 if [[ "$CONFIGURATION" == "AppStore" ]]; then
   install_framework 'Pods-Trails/Alamofire.framework'
   install_framework 'Pods-Trails/AlamofireObjectMapper.framework'
+  install_framework 'Pods-Trails/Koloda.framework'
   install_framework 'Pods-Trails/ObjectMapper.framework'
   install_framework 'Pods-Trails/SDWebImage.framework'
   install_framework 'Pods-Trails/SSKeychain.framework'
   install_framework 'Pods-Trails/SwiftyDropbox.framework'
+  install_framework 'Pods-Trails/pop.framework'
 fi
