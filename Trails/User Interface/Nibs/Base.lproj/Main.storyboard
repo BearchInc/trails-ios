@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPt-lh-wEg">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPt-lh-wEg" customClass="TrailView" customModule="Trails" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -31,6 +31,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="kolodaView" destination="jPt-lh-wEg" id="veP-RQ-3zj"/>
                         <outlet property="toggleDropboxLink" destination="wxQ-Yb-3Dc" id="1AL-PX-fR4"/>
                     </connections>
                 </viewController>

@@ -1,15 +1,89 @@
 import UIKit
 import SwiftyDropbox
+import Koloda
+import pop
 
-class HomeViewController: UIViewController {
+private let frameAnimationSpringBounciness:CGFloat = 9
+private let frameAnimationSpringSpeed:CGFloat = 16
+
+class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate {
     
+    @IBOutlet weak var kolodaView: TrailView!
     @IBOutlet weak var toggleDropboxLink: UIBarButtonItem!
 
     override func viewDidAppear(animated: Bool) {
-        verifyDropboxAuthorization()
+        if verifyDropboxAuthorization() {
+//            showTrails()
+        }
     }
     
-    func verifyDropboxAuthorization() {
+    func showTrails() {
+        kolodaView.delegate = self
+        kolodaView.dataSource = self
+        kolodaView.alphaValueSemiTransparent = 0.1
+        kolodaView.countOfVisibleCards = 2
+        self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+    }
+    
+    @IBAction func leftButtonTapped() {
+        kolodaView?.swipe(SwipeResultDirection.Left)
+    }
+    
+    @IBAction func rightButtonTapped() {
+        kolodaView?.swipe(SwipeResultDirection.Right)
+    }
+    
+    @IBAction func undoButtonTapped() {
+        kolodaView?.revertAction()
+    }
+    
+    //MARK: KolodaViewDataSource
+    func kolodaNumberOfCards(koloda: KolodaView) -> UInt {
+        return 0
+    }
+    
+    func kolodaViewForCardAtIndex(koloda: KolodaView, index: UInt) -> UIView {
+        return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
+    }
+    func kolodaViewForCardOverlayAtIndex(koloda: KolodaView, index: UInt) -> OverlayView? {
+        return NSBundle.mainBundle().loadNibNamed("CustomOverlayView",
+            owner: self, options: nil)[0] as? OverlayView
+    }
+    
+    //MARK: KolodaViewDelegate
+    
+    func kolodaDidSwipedCardAtIndex(koloda: KolodaView, index: UInt, direction: SwipeResultDirection) {
+    }
+    
+    func kolodaDidRunOutOfCards(koloda: KolodaView) {
+        //Example: reloading
+        kolodaView.resetCurrentCardNumber()
+    }
+    
+    func kolodaDidSelectCardAtIndex(koloda: KolodaView, index: UInt) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://yalantis.com/")!)
+    }
+    
+    func kolodaShouldApplyAppearAnimation(koloda: KolodaView) -> Bool {
+        return true
+    }
+    
+    func kolodaShouldMoveBackgroundCard(koloda: KolodaView) -> Bool {
+        return false
+    }
+    
+    func kolodaShouldTransparentizeNextCard(koloda: KolodaView) -> Bool {
+        return false
+    }
+    
+    func kolodaBackgroundCardAnimation(koloda: KolodaView) -> POPPropertyAnimation? {
+        let animation = POPSpringAnimation(propertyNamed: kPOPViewFrame)
+        animation.springBounciness = frameAnimationSpringBounciness
+        animation.springSpeed = frameAnimationSpringSpeed
+        return animation
+    }
+    
+    func verifyDropboxAuthorization() ->  Bool {
         if let authorizedClient = Dropbox.authorizedClient {
             
             let dropboxAccessTokens = DropboxAuthManager.sharedAuthManager.getAllAccessTokens().keys.array
@@ -27,14 +101,16 @@ class HomeViewController: UIViewController {
                         println(error!)
                     }
                 }
+                
+                return true
             } else {
                 Dropbox.unlinkClient()
                 sleep(1)
-                verifyDropboxAuthorization()
+                return verifyDropboxAuthorization()
             }
-        } else {
-            toggleDropboxLink.title = "Link with Dropbox"
         }
+        toggleDropboxLink.title = "Link with Dropbox"
+        return false
     }
     
     @IBAction func didTapDropboxLink(sender: AnyObject) {
