@@ -11,8 +11,9 @@
     {
       "extent" : "full-screen",
       "idiom" : "iphone",
-      "subtype" : "736h",
-      "minimum-system-version" : "8.0",
+      "subtype" : "retina4",
+      "filename" : "Trace-Loading1136x640.png",
+      "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
     }
