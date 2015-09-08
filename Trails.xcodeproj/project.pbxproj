@@ -32,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		0BC8BB43DA2FB7DFAF13699F /* Pods-Trails.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.debug.xcconfig"; sourceTree = "<group>"; };
+		1874701E1D04E0FF84630430 /* Pods-Trails.dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.dev.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.dev.xcconfig"; sourceTree = "<group>"; };
 		281C9E521B90EECF00233380 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		28378AAE1B8D0CB000AC342A /* Trails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trails.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28378AB21B8D0CB000AC342A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,10 +46,12 @@
 		28378AD71B8D21FB00AC342A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		28EDEA4F1B9A13AA000BFFA7 /* Trails-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trails-Bridging-Header.h"; sourceTree = "<group>"; };
 		762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		979B2078E3859F740B3CA27D /* Pods-Trails.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.staging.xcconfig"; sourceTree = "<group>"; };
 		B483CCEBD082EDB20144BF43 /* Pods-Trails.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.release.xcconfig"; sourceTree = "<group>"; };
 		C0A49199C2A83B86B50FFB98 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		C0A493E480EAD96391520E39 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 		C0A49A5C0DCDA50B171019AD /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		F805398687A054CF2CF0540A /* Pods-Trails.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.appstore.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.appstore.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,9 @@
 			children = (
 				0BC8BB43DA2FB7DFAF13699F /* Pods-Trails.debug.xcconfig */,
 				B483CCEBD082EDB20144BF43 /* Pods-Trails.release.xcconfig */,
+				1874701E1D04E0FF84630430 /* Pods-Trails.dev.xcconfig */,
+				979B2078E3859F740B3CA27D /* Pods-Trails.staging.xcconfig */,
+				F805398687A054CF2CF0540A /* Pods-Trails.appstore.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -457,7 +463,7 @@
 		};
 		28378ACE1B8D0CB000AC342A /* Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BC8BB43DA2FB7DFAF13699F /* Pods-Trails.debug.xcconfig */;
+			baseConfigurationReference = 1874701E1D04E0FF84630430 /* Pods-Trails.dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -480,7 +486,7 @@
 		};
 		28378ACF1B8D0CB000AC342A /* AppStore */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B483CCEBD082EDB20144BF43 /* Pods-Trails.release.xcconfig */;
+			baseConfigurationReference = F805398687A054CF2CF0540A /* Pods-Trails.appstore.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -580,7 +586,7 @@
 		};
 		28EDEA4D1B9A12AC000BFFA7 /* Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BC8BB43DA2FB7DFAF13699F /* Pods-Trails.debug.xcconfig */;
+			baseConfigurationReference = 979B2078E3859F740B3CA27D /* Pods-Trails.staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

@@ -361,7 +361,13 @@ public class DropboxAuthManager {
     ///
     /// :returns: whether the operation succeeded
     public func clearStoredAccessTokens() -> Bool {
-        return Keychain.clear()
+        var success = false
+        let dropboxKeys = self.getAllAccessTokens().keys.array
+        for dropboxKey in dropboxKeys {
+            success = Keychain.delete(dropboxKey)
+        }
+
+        return success
     }
 
     /// Save an access token

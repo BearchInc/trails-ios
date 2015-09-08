@@ -20,7 +20,7 @@ public class Users {
     public class GetAccountArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: GetAccountArg) -> JSON {
-            var output = [ 
+            var output = [
             "account_id": Serialization._StringSerializer.serialize(value.accountId),
             ]
             return .Dictionary(output)
@@ -32,6 +32,7 @@ public class Users {
                     return GetAccountArg(accountId: accountId)
                 default:
                     assert(false, "Type error deserializing")
+                    return GetAccountArg(accountId: "")
             }
         }
     }
@@ -75,6 +76,7 @@ public class Users {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return GetAccountError.Unknown
             }
         }
     }
@@ -128,6 +130,7 @@ public class Users {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return AccountType.Basic
             }
         }
     }
@@ -153,7 +156,7 @@ public class Users {
     public class AccountSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: Account) -> JSON {
-            var output = [ 
+            var output = [
             "account_id": Serialization._StringSerializer.serialize(value.accountId),
             "name": NameSerializer().serialize(value.name),
             ]
@@ -167,6 +170,7 @@ public class Users {
                     return Account(accountId: accountId, name: name)
                 default:
                     assert(false, "Type error deserializing")
+                    return Account(accountId: "", name: Name(givenName: "", surname: "", familiarName: "", displayName: ""))
             }
         }
     }
@@ -188,7 +192,7 @@ public class Users {
     public class BasicAccountSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: BasicAccount) -> JSON {
-            var output = [ 
+            var output = [
             "account_id": Serialization._StringSerializer.serialize(value.accountId),
             "name": NameSerializer().serialize(value.name),
             "is_teammate": Serialization._BoolSerializer.serialize(value.isTeammate),
@@ -204,6 +208,7 @@ public class Users {
                     return BasicAccount(accountId: accountId, name: name, isTeammate: isTeammate)
                 default:
                     assert(false, "Type error deserializing")
+                    return BasicAccount(accountId: "", name: Users.Name(givenName: "", surname: "", familiarName: "", displayName: ""), isTeammate: false)
             }
         }
     }
@@ -258,7 +263,7 @@ public class Users {
     public class FullAccountSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: FullAccount) -> JSON {
-            var output = [ 
+            var output = [
             "account_id": Serialization._StringSerializer.serialize(value.accountId),
             "name": NameSerializer().serialize(value.name),
             "email": Serialization._StringSerializer.serialize(value.email),
@@ -286,6 +291,7 @@ public class Users {
                     return FullAccount(accountId: accountId, name: name, email: email, locale: locale, referralLink: referralLink, isPaired: isPaired, accountType: accountType, country: country, team: team)
                 default:
                     assert(false, "Type error deserializing")
+                    return FullAccount(accountId: "", name: Users.Name(givenName: "", surname: "", familiarName: "", displayName: ""), email: "", locale: "", referralLink: "", isPaired: false, accountType: Users.AccountType.Basic, country: nil, team: nil)
             }
         }
     }
@@ -311,7 +317,7 @@ public class Users {
     public class TeamSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: Team) -> JSON {
-            var output = [ 
+            var output = [
             "id": Serialization._StringSerializer.serialize(value.id),
             "name": Serialization._StringSerializer.serialize(value.name),
             ]
@@ -325,6 +331,7 @@ public class Users {
                     return Team(id: id, name: name)
                 default:
                     assert(false, "Type error deserializing")
+                    return Team(id: "", name: "")
             }
         }
     }
@@ -363,7 +370,7 @@ public class Users {
     public class NameSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: Name) -> JSON {
-            var output = [ 
+            var output = [
             "given_name": Serialization._StringSerializer.serialize(value.givenName),
             "surname": Serialization._StringSerializer.serialize(value.surname),
             "familiar_name": Serialization._StringSerializer.serialize(value.familiarName),
@@ -381,6 +388,7 @@ public class Users {
                     return Name(givenName: givenName, surname: surname, familiarName: familiarName, displayName: displayName)
                 default:
                     assert(false, "Type error deserializing")
+                    return Name(givenName: "", surname: "", familiarName: "", displayName: "")
             }
         }
     }
@@ -405,7 +413,7 @@ public class Users {
     public class SpaceUsageSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: SpaceUsage) -> JSON {
-            var output = [ 
+            var output = [
             "used": Serialization._UInt64Serializer.serialize(value.used),
             "allocation": SpaceAllocationSerializer().serialize(value.allocation),
             ]
@@ -419,6 +427,7 @@ public class Users {
                     return SpaceUsage(used: used, allocation: allocation)
                 default:
                     assert(false, "Type error deserializing")
+                    return SpaceUsage(used: 0, allocation: Users.SpaceAllocation.Other)
             }
         }
     }
@@ -473,6 +482,7 @@ public class Users {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return SpaceAllocation.Other
             }
         }
     }
@@ -493,7 +503,7 @@ public class Users {
     public class IndividualSpaceAllocationSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: IndividualSpaceAllocation) -> JSON {
-            var output = [ 
+            var output = [
             "allocated": Serialization._UInt64Serializer.serialize(value.allocated),
             ]
             return .Dictionary(output)
@@ -505,6 +515,7 @@ public class Users {
                     return IndividualSpaceAllocation(allocated: allocated)
                 default:
                     assert(false, "Type error deserializing")
+                    return IndividualSpaceAllocation(allocated: 0)
             }
         }
     }
@@ -530,7 +541,7 @@ public class Users {
     public class TeamSpaceAllocationSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: TeamSpaceAllocation) -> JSON {
-            var output = [ 
+            var output = [
             "used": Serialization._UInt64Serializer.serialize(value.used),
             "allocated": Serialization._UInt64Serializer.serialize(value.allocated),
             ]
@@ -544,6 +555,7 @@ public class Users {
                     return TeamSpaceAllocation(used: used, allocated: allocated)
                 default:
                     assert(false, "Type error deserializing")
+                    return TeamSpaceAllocation(used: 0, allocated: 0)
             }
         }
     }

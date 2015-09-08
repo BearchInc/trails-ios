@@ -27,7 +27,7 @@ public class Files {
     public class MetadataSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: Metadata) -> JSON {
-            var output = [ 
+            var output = [
             "name": Serialization._StringSerializer.serialize(value.name),
             "path_lower": Serialization._StringSerializer.serialize(value.pathLower),
             ]
@@ -67,6 +67,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Type error deserializing")
+                    return Metadata(name: "", pathLower: "")
             }
         }
     }
@@ -113,7 +114,7 @@ public class Files {
     public class FileMetadataSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: FileMetadata) -> JSON {
-            var output = [ 
+            var output = [
             "name": Serialization._StringSerializer.serialize(value.name),
             "path_lower": Serialization._StringSerializer.serialize(value.pathLower),
             "client_modified": NSDateSerializer("%Y-%m-%dT%H:%M:%SZ").serialize(value.clientModified),
@@ -137,6 +138,7 @@ public class Files {
                     return FileMetadata(name: name, pathLower: pathLower, clientModified: clientModified, serverModified: serverModified, rev: rev, size: size, id: id)
                 default:
                     assert(false, "Type error deserializing")
+                    return FileMetadata(name: "", pathLower: "", clientModified: NSDate(), serverModified: NSDate(), rev: "", size: 0)
             }
         }
     }
@@ -160,7 +162,7 @@ public class Files {
     public class FolderMetadataSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: FolderMetadata) -> JSON {
-            var output = [ 
+            var output = [
             "name": Serialization._StringSerializer.serialize(value.name),
             "path_lower": Serialization._StringSerializer.serialize(value.pathLower),
             "id": NullableSerializer(Serialization._StringSerializer).serialize(value.id),
@@ -176,6 +178,7 @@ public class Files {
                     return FolderMetadata(name: name, pathLower: pathLower, id: id)
                 default:
                     assert(false, "Type error deserializing")
+                    return FolderMetadata(name: "", pathLower: "")
             }
         }
     }
@@ -190,7 +193,7 @@ public class Files {
     public class DeletedMetadataSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: DeletedMetadata) -> JSON {
-            var output = [ 
+            var output = [
             "name": Serialization._StringSerializer.serialize(value.name),
             "path_lower": Serialization._StringSerializer.serialize(value.pathLower),
             ]
@@ -204,6 +207,7 @@ public class Files {
                     return DeletedMetadata(name: name, pathLower: pathLower)
                 default:
                     assert(false, "Type error deserializing")
+                    return DeletedMetadata(name: "", pathLower: "")
             }
         }
     }
@@ -248,6 +252,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return GetMetadataError.Other
             }
         }
     }
@@ -269,7 +274,7 @@ public class Files {
     public class GetMetadataArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: GetMetadataArg) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             ]
             return .Dictionary(output)
@@ -281,6 +286,7 @@ public class Files {
                     return GetMetadataArg(path: path)
                 default:
                     assert(false, "Type error deserializing")
+                    return GetMetadataArg(path: "")
             }
         }
     }
@@ -308,7 +314,7 @@ public class Files {
     public class ListFolderArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: ListFolderArg) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             "recursive": Serialization._BoolSerializer.serialize(value.recursive),
             ]
@@ -322,6 +328,7 @@ public class Files {
                     return ListFolderArg(path: path, recursive: recursive)
                 default:
                     assert(false, "Type error deserializing")
+                    return ListFolderArg(path: "")
             }
         }
     }
@@ -352,7 +359,7 @@ public class Files {
     public class ListFolderResultSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: ListFolderResult) -> JSON {
-            var output = [ 
+            var output = [
             "entries": ArraySerializer(MetadataSerializer()).serialize(value.entries),
             "cursor": Serialization._StringSerializer.serialize(value.cursor),
             "has_more": Serialization._BoolSerializer.serialize(value.hasMore),
@@ -368,6 +375,7 @@ public class Files {
                     return ListFolderResult(entries: entries, cursor: cursor, hasMore: hasMore)
                 default:
                     assert(false, "Type error deserializing")
+                    return ListFolderResult(entries: ArraySerializer(MetadataSerializer()).deserialize(.Null), cursor: "", hasMore: false)
             }
         }
     }
@@ -412,6 +420,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return FolderPathError.NotFound
             }
         }
     }
@@ -447,6 +456,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return ListFolderError.Other
             }
         }
     }
@@ -467,7 +477,7 @@ public class Files {
     public class ListFolderContinueArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: ListFolderContinueArg) -> JSON {
-            var output = [ 
+            var output = [
             "cursor": Serialization._StringSerializer.serialize(value.cursor),
             ]
             return .Dictionary(output)
@@ -479,6 +489,7 @@ public class Files {
                     return ListFolderContinueArg(cursor: cursor)
                 default:
                     assert(false, "Type error deserializing")
+                    return ListFolderContinueArg(cursor: "")
             }
         }
     }
@@ -515,6 +526,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return ListFolderContinueError.Reset
             }
         }
     }
@@ -536,7 +548,7 @@ public class Files {
     public class ListFolderGetLatestCursorResultSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: ListFolderGetLatestCursorResult) -> JSON {
-            var output = [ 
+            var output = [
             "cursor": Serialization._StringSerializer.serialize(value.cursor),
             ]
             return .Dictionary(output)
@@ -548,6 +560,7 @@ public class Files {
                     return ListFolderGetLatestCursorResult(cursor: cursor)
                 default:
                     assert(false, "Type error deserializing")
+                    return ListFolderGetLatestCursorResult(cursor: "")
             }
         }
     }
@@ -592,6 +605,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return NoFileReason.NotFound
             }
         }
     }
@@ -611,7 +625,7 @@ public class Files {
     public class NoFileSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: NoFile) -> JSON {
-            var output = [ 
+            var output = [
             "reason": NoFileReasonSerializer().serialize(value.reason),
             ]
             return .Dictionary(output)
@@ -623,6 +637,8 @@ public class Files {
                     return NoFile(reason: reason)
                 default:
                     assert(false, "Type error deserializing")
+                    let reason = NoFileReasonSerializer().deserialize(.Null)
+                    return NoFile(reason: reason)
             }
         }
     }
@@ -668,6 +684,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return RestrictedReason.Other
             }
         }
     }
@@ -687,7 +704,7 @@ public class Files {
     public class RestrictedSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: Restricted) -> JSON {
-            var output = [ 
+            var output = [
             "reason": RestrictedReasonSerializer().serialize(value.reason),
             ]
             return .Dictionary(output)
@@ -699,6 +716,7 @@ public class Files {
                     return Restricted(reason: reason)
                 default:
                     assert(false, "Type error deserializing")
+                    return Restricted(reason: RestrictedReasonSerializer().deserialize(.Null))
             }
         }
     }
@@ -744,6 +762,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return DisallowedReason.Permission
             }
         }
     }
@@ -763,7 +782,7 @@ public class Files {
     public class DisallowedSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: Disallowed) -> JSON {
-            var output = [ 
+            var output = [
             "reason": DisallowedReasonSerializer().serialize(value.reason),
             ]
             return .Dictionary(output)
@@ -775,6 +794,7 @@ public class Files {
                     return Disallowed(reason: reason)
                 default:
                     assert(false, "Type error deserializing")
+                    return Disallowed(reason: DisallowedReasonSerializer().deserialize(.Null))
             }
         }
     }
@@ -830,6 +850,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return DownloadError.Other
             }
         }
     }
@@ -855,7 +876,7 @@ public class Files {
     public class DownloadArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: DownloadArg) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             "rev": NullableSerializer(Serialization._StringSerializer).serialize(value.rev),
             ]
@@ -869,6 +890,7 @@ public class Files {
                     return DownloadArg(path: path, rev: rev)
                 default:
                     assert(false, "Type error deserializing")
+                    return DownloadArg(path: "", rev: nil)
             }
         }
     }
@@ -931,6 +953,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return CommitConflictError.Other
             }
         }
     }
@@ -995,6 +1018,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return CommitError.Other
             }
         }
     }
@@ -1019,7 +1043,7 @@ public class Files {
     public class UploadCommitErrorSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: UploadCommitError) -> JSON {
-            var output = [ 
+            var output = [
             "reason": CommitErrorSerializer().serialize(value.reason),
             "upload_session_id": Serialization._StringSerializer.serialize(value.uploadSessionId),
             ]
@@ -1033,6 +1057,7 @@ public class Files {
                     return UploadCommitError(reason: reason, uploadSessionId: uploadSessionId)
                 default:
                     assert(false, "Type error deserializing")
+                    return UploadCommitError(reason: Files.CommitError.Other, uploadSessionId: "")
             }
         }
     }
@@ -1053,7 +1078,7 @@ public class Files {
     public class UploadSessionOffsetErrorSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: UploadSessionOffsetError) -> JSON {
-            var output = [ 
+            var output = [
             "correct_offset": Serialization._UInt64Serializer.serialize(value.correctOffset),
             ]
             return .Dictionary(output)
@@ -1065,6 +1090,7 @@ public class Files {
                     return UploadSessionOffsetError(correctOffset: correctOffset)
                 default:
                     assert(false, "Type error deserializing")
+                    return UploadSessionOffsetError(correctOffset: 0)
             }
         }
     }
@@ -1132,6 +1158,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return UploadSessionLookupError.Other
             }
         }
     }
@@ -1177,6 +1204,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return UploadError.Other
             }
         }
     }
@@ -1232,6 +1260,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return UploadSessionFinishError.Other
             }
         }
     }
@@ -1253,7 +1282,7 @@ public class Files {
     public class UploadSessionStartResultSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: UploadSessionStartResult) -> JSON {
-            var output = [ 
+            var output = [
             "session_id": Serialization._StringSerializer.serialize(value.sessionId),
             ]
             return .Dictionary(output)
@@ -1265,6 +1294,7 @@ public class Files {
                     return UploadSessionStartResult(sessionId: sessionId)
                 default:
                     assert(false, "Type error deserializing")
+                    return UploadSessionStartResult(sessionId: "")
             }
         }
     }
@@ -1293,7 +1323,7 @@ public class Files {
     public class UploadSessionCursorSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: UploadSessionCursor) -> JSON {
-            var output = [ 
+            var output = [
             "session_id": Serialization._StringSerializer.serialize(value.sessionId),
             "offset": Serialization._UInt64Serializer.serialize(value.offset),
             ]
@@ -1307,6 +1337,7 @@ public class Files {
                     return UploadSessionCursor(sessionId: sessionId, offset: offset)
                 default:
                     assert(false, "Type error deserializing")
+                    return UploadSessionCursor(sessionId: "", offset: 0)
             }
         }
     }
@@ -1376,6 +1407,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return WriteMode.Add
             }
         }
     }
@@ -1421,7 +1453,7 @@ public class Files {
     public class CommitInfoSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: CommitInfo) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             "mode": WriteModeSerializer().serialize(value.mode),
             "autorename": Serialization._BoolSerializer.serialize(value.autorename),
@@ -1441,6 +1473,7 @@ public class Files {
                     return CommitInfo(path: path, mode: mode, autorename: autorename, clientModified: clientModified, mute: mute)
                 default:
                     assert(false, "Type error deserializing")
+                    return CommitInfo(path: "", mode: Files.WriteMode.Add, autorename: false, clientModified: nil, mute: false)
             }
         }
     }
@@ -1464,7 +1497,7 @@ public class Files {
     public class UploadSessionFinishArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: UploadSessionFinishArg) -> JSON {
-            var output = [ 
+            var output = [
             "cursor": UploadSessionCursorSerializer().serialize(value.cursor),
             "commit": CommitInfoSerializer().serialize(value.commit),
             ]
@@ -1478,6 +1511,7 @@ public class Files {
                     return UploadSessionFinishArg(cursor: cursor, commit: commit)
                 default:
                     assert(false, "Type error deserializing")
+                    return UploadSessionFinishArg(cursor: UploadSessionCursorSerializer().deserialize(.Null), commit: CommitInfoSerializer().deserialize(.Null))
             }
         }
     }
@@ -1531,6 +1565,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return SearchMode.Filename
             }
         }
     }
@@ -1575,7 +1610,7 @@ public class Files {
     public class SearchQuerySerializer: JSONSerializer {
         public init() { }
         public func serialize(value: SearchQuery) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             "query": Serialization._StringSerializer.serialize(value.query),
             "start": Serialization._UInt64Serializer.serialize(value.start),
@@ -1595,6 +1630,7 @@ public class Files {
                     return SearchQuery(path: path, query: query, start: start, maxResults: maxResults, mode: mode)
                 default:
                     assert(false, "Type error deserializing")
+                    return SearchQuery(path: "", query: "", start: 0, maxResults: 0, mode: Files.SearchMode.Filename)
             }
         }
     }
@@ -1648,6 +1684,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return SearchMatchType.Both
             }
         }
     }
@@ -1671,7 +1708,7 @@ public class Files {
     public class SearchMatchSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: SearchMatch) -> JSON {
-            var output = [ 
+            var output = [
             "match_type": SearchMatchTypeSerializer().serialize(value.matchType),
             "metadata": MetadataSerializer().serialize(value.metadata),
             ]
@@ -1685,6 +1722,7 @@ public class Files {
                     return SearchMatch(matchType: matchType, metadata: metadata)
                 default:
                     assert(false, "Type error deserializing")
+                    return SearchMatch(matchType: SearchMatchTypeSerializer().deserialize(.Null), metadata: MetadataSerializer().deserialize(.Null))
             }
         }
     }
@@ -1715,7 +1753,7 @@ public class Files {
     public class SearchResultsSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: SearchResults) -> JSON {
-            var output = [ 
+            var output = [
             "matches": ArraySerializer(SearchMatchSerializer()).serialize(value.matches),
             "more": Serialization._BoolSerializer.serialize(value.more),
             "start": Serialization._UInt64Serializer.serialize(value.start),
@@ -1731,6 +1769,7 @@ public class Files {
                     return SearchResults(matches: matches, more: more, start: start)
                 default:
                     assert(false, "Type error deserializing")
+                    return SearchResults(matches: ArraySerializer(SearchMatchSerializer()).deserialize(.Null), more: false, start: 0)
             }
         }
     }
@@ -1766,6 +1805,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return SearchError.Other
             }
         }
     }
@@ -1911,6 +1951,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return PathError.Other
             }
         }
     }
@@ -1931,7 +1972,7 @@ public class Files {
     public class CreateFolderArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: CreateFolderArg) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             ]
             return .Dictionary(output)
@@ -1943,6 +1984,7 @@ public class Files {
                     return CreateFolderArg(path: path)
                 default:
                     assert(false, "Type error deserializing")
+                    return CreateFolderArg(path: "")
             }
         }
     }
@@ -1963,7 +2005,7 @@ public class Files {
     public class DeleteArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: DeleteArg) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             ]
             return .Dictionary(output)
@@ -1975,6 +2017,7 @@ public class Files {
                     return DeleteArg(path: path)
                 default:
                     assert(false, "Type error deserializing")
+                    return DeleteArg(path: "")
             }
         }
     }
@@ -2000,7 +2043,7 @@ public class Files {
     public class RelocationArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: RelocationArg) -> JSON {
-            var output = [ 
+            var output = [
             "from_path": Serialization._StringSerializer.serialize(value.fromPath),
             "to_path": Serialization._StringSerializer.serialize(value.toPath),
             ]
@@ -2014,6 +2057,7 @@ public class Files {
                     return RelocationArg(fromPath: fromPath, toPath: toPath)
                 default:
                     assert(false, "Type error deserializing")
+                    return RelocationArg(fromPath: "", toPath: "")
             }
         }
     }
@@ -2090,6 +2134,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return RelocationError.Other
             }
         }
     }
@@ -2161,6 +2206,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return ThumbnailSize.Xs
             }
         }
     }
@@ -2203,6 +2249,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return ThumbnailFormat.Jpeg
             }
         }
     }
@@ -2236,7 +2283,7 @@ public class Files {
     public class ThumbnailArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: ThumbnailArg) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             "format": ThumbnailFormatSerializer().serialize(value.format),
             "size": ThumbnailSizeSerializer().serialize(value.size),
@@ -2252,6 +2299,7 @@ public class Files {
                     return ThumbnailArg(path: path, format: format, size: size)
                 default:
                     assert(false, "Type error deserializing")
+                    return ThumbnailArg(path: "", format: ThumbnailFormat.Jpeg, size: ThumbnailSize.Xs)
             }
         }
     }
@@ -2276,6 +2324,7 @@ public class Files {
         case UnsupportedSize
         case UnsupportedImage
         case ConversionError
+        case UnknownError
         public var description : String {
             return "\(prepareJSONForSerialization(ThumbnailErrorSerializer().serialize(self)))"
         }
@@ -2308,6 +2357,11 @@ public class Files {
                     var d = [String : JSON]()
                     d[".tag"] = .Str("conversion_error")
                     return .Dictionary(d)
+                default:
+                    var d = ["unknown_error": DownloadErrorSerializer().serialize(DownloadError.Other)]
+                    d[".tag"] = .Str("unknown_error")
+                    return .Dictionary(d)
+
             }
         }
         public func deserialize(json: JSON) -> ThumbnailError {
@@ -2333,6 +2387,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return ThumbnailError.UnknownError
             }
         }
     }
@@ -2358,7 +2413,7 @@ public class Files {
     public class PreviewArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: PreviewArg) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             "rev": NullableSerializer(Serialization._StringSerializer).serialize(value.rev),
             ]
@@ -2372,6 +2427,7 @@ public class Files {
                     return PreviewArg(path: path, rev: rev)
                 default:
                     assert(false, "Type error deserializing")
+                    return PreviewArg(path: "", rev: "")
             }
         }
     }
@@ -2436,6 +2492,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return PreviewError.UnsupportedContent
             }
         }
     }
@@ -2461,7 +2518,7 @@ public class Files {
     public class ListRevisionsArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: ListRevisionsArg) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             "limit": Serialization._UInt64Serializer.serialize(value.limit),
             ]
@@ -2475,6 +2532,7 @@ public class Files {
                     return ListRevisionsArg(path: path, limit: limit)
                 default:
                     assert(false, "Type error deserializing")
+                    return ListRevisionsArg(path: "", limit: 0)
             }
         }
     }
@@ -2511,6 +2569,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return ListRevisionsError.DownloadError(Files.DownloadError.Other)
             }
         }
     }
@@ -2535,7 +2594,7 @@ public class Files {
     public class ListRevisionsResultSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: ListRevisionsResult) -> JSON {
-            var output = [ 
+            var output = [
             "is_deleted": Serialization._BoolSerializer.serialize(value.isDeleted),
             "entries": ArraySerializer(FileMetadataSerializer()).serialize(value.entries),
             ]
@@ -2549,6 +2608,10 @@ public class Files {
                     return ListRevisionsResult(isDeleted: isDeleted, entries: entries)
                 default:
                     assert(false, "Type error deserializing")
+
+                    let emptyFileMetaData:FileMetadata = FileMetadata(name: "", pathLower: "", clientModified: NSDate(), serverModified: NSDate(), rev: "", size: 0)
+                    let entries = [emptyFileMetaData]
+                    return ListRevisionsResult(isDeleted: false, entries: entries)
             }
         }
     }
@@ -2574,7 +2637,7 @@ public class Files {
     public class RestoreArgSerializer: JSONSerializer {
         public init() { }
         public func serialize(value: RestoreArg) -> JSON {
-            var output = [ 
+            var output = [
             "path": Serialization._StringSerializer.serialize(value.path),
             "rev": Serialization._StringSerializer.serialize(value.rev),
             ]
@@ -2588,6 +2651,7 @@ public class Files {
                     return RestoreArg(path: path, rev: rev)
                 default:
                     assert(false, "Type error deserializing")
+                    return RestoreArg(path: "", rev: "")
             }
         }
     }
@@ -2643,6 +2707,7 @@ public class Files {
                     }
                 default:
                     assert(false, "Failed to deserialize")
+                    return RestoreError.InvalidRevision
             }
         }
     }

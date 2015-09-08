@@ -11,19 +11,27 @@ class HomeViewController: UIViewController {
     
     func verifyDropboxAuthorization() {
         if let authorizedClient = Dropbox.authorizedClient {
-            toggleDropboxLink.title = "Unlink from Dropbox"
-            let userId = DropboxAuthManager.sharedAuthManager.getAllAccessTokens().keys.array.last!
-            let authToken = DropboxAuthManager.sharedAuthManager.getAccessToken(user: userId)
             
-            Account.instance.registerDropbox(userId, accessToken: authToken!.description)
-            authorizedClient.usersGetCurrentAccount().response { response, error in
-                if let account = response {
-                    Account.instance.update(account)
-                } else {
-                    println(error!)
+            let dropboxAccessTokens = DropboxAuthManager.sharedAuthManager.getAllAccessTokens().keys.array
+
+            if dropboxAccessTokens.count > 0 {
+                toggleDropboxLink.title = "Unlink from Dropbox"
+                let userId = dropboxAccessTokens.last!
+                let authToken = DropboxAuthManager.sharedAuthManager.getAccessToken(user: userId)
+                
+                Account.instance.registerDropbox(userId, accessToken: authToken!.description)
+                authorizedClient.usersGetCurrentAccount().response { response, error in
+                    if let account = response {
+                        Account.instance.update(account)
+                    } else {
+                        println(error!)
+                    }
                 }
+            } else {
+                Dropbox.unlinkClient()
+                sleep(1)
+                verifyDropboxAuthorization()
             }
-            
         } else {
             toggleDropboxLink.title = "Link with Dropbox"
         }
@@ -31,7 +39,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func didTapDropboxLink(sender: AnyObject) {
         if let authorized = Dropbox.authorizedClient {
-            DropboxAuthManager.sharedAuthManager.clearStoredAccessTokens()
+            Dropbox.unlinkClient()
             verifyDropboxAuthorization()
         } else {
            Dropbox.authorizeFromController(self)

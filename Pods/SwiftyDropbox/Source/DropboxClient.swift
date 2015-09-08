@@ -10,20 +10,20 @@ import Foundation
 import Alamofire
 
 public class DropboxClient : BabelClient {
-    
+
     let accessToken : DropboxAccessToken
-    
+
     public static var sharedClient : DropboxClient!
-    
+
     public init(accessToken: DropboxAccessToken, baseApiUrl: String, baseContentUrl: String, baseNotifyUrl: String) {
         self.accessToken = accessToken
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        
+
         // Authentication header with access token
         configuration.HTTPAdditionalHeaders = [
             "Authorization" : "Bearer \(self.accessToken)",
         ]
-        
+
         let manager = Manager(configuration: configuration)
         super.init(manager: manager, baseHosts : [
             "meta" : baseApiUrl,
@@ -31,11 +31,11 @@ public class DropboxClient : BabelClient {
             "notify": baseNotifyUrl,
             ])
     }
-    
+
     public convenience init(accessToken: DropboxAccessToken) {
         self.init(accessToken: accessToken,
-            baseApiUrl: "https://api.dropbox.com/2-beta-2",
-            baseContentUrl: "https://api-content.dropbox.com/2-beta-2",
+            baseApiUrl: "https://api.dropbox.com",
+            baseContentUrl: "https://api-content.dropbox.com",
             baseNotifyUrl: "https://api-notify.dropbox.com")
     }
 }
@@ -87,4 +87,3 @@ public class Dropbox {
         DropboxClient.sharedClient = nil
     }
 }
-
