@@ -22,16 +22,21 @@ DEPENDENCIES:
   - AlamofireObjectMapper (~> 0.7)
   - Crashlytics (~> 3.1.0)
   - Fabric (~> 1.2.8)
-  - Koloda (~> 1.1.2)
+  - Koloda (from `git@github.com:BearchInc/Koloda.git`)
   - SDWebImage (~> 3.7)
   - SSKeychain (= 1.2.3)
   - SwiftyDropbox (from `git@github.com:BearchInc/SwiftyDropbox.git`)
 
 EXTERNAL SOURCES:
+  Koloda:
+    :git: git@github.com:BearchInc/Koloda.git
   SwiftyDropbox:
     :git: git@github.com:BearchInc/SwiftyDropbox.git
 
 CHECKOUT OPTIONS:
+  Koloda:
+    :commit: a49f61dda1e0cd5aed181169ab00686f5174576b
+    :git: git@github.com:BearchInc/Koloda.git
   SwiftyDropbox:
     :commit: a13288f90a61a0f9f41ecd4721f9621d43592911
     :git: git@github.com:BearchInc/SwiftyDropbox.git
@@ -41,7 +46,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: b07339a5ce5f609230df61080e55c1f6fc9551ee
   Crashlytics: 39ab395565bc03c29cdecd2b9d103ebf30930c10
   Fabric: a9eabe53915e9f1db55a84dd2838737928675878
-  Koloda: 19b54bfb56c3b9e4e946c750b1c3bc771298d7ca
+  Koloda: 0467562bdacdd995699c625b337ceef0d0bb7ae3
   ObjectMapper: 0656dc1c155825897e5acfcd25362c6b61786dcb
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
