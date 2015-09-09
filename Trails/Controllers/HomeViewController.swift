@@ -11,20 +11,20 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     @IBOutlet weak var kolodaView: TrailView!
     @IBOutlet weak var toggleDropboxLink: UIBarButtonItem!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         if verifyDropboxAuthorization() {
             showTrails()
         }
     }
-    
+        
     func showTrails() {
         kolodaView.delegate = self
         kolodaView.dataSource = self
         kolodaView.alphaValueSemiTransparent = 0.1
         kolodaView.countOfVisibleCards = 2
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        kolodaView.reloadData()
     }
     
     @IBAction func leftButtonTapped() {
