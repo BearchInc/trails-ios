@@ -476,9 +476,6 @@ public class KolodaView: UIView, DraggableCardDelegate {
     }
     
     public func reloadData() {
-        println("Datasource is: ")
-        println(dataSource)
-        println("Datasource end: ")
         countOfCards = Int(dataSource!.kolodaNumberOfCards(self))
         let missingCards = min(countOfVisibleCards - visibleCards.count, countOfCards - (currentCardNumber + 1))
         

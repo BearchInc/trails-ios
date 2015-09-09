@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Lk0-48-LlC">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Home View Controller-->
@@ -13,35 +14,51 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPt-lh-wEg" customClass="TrailView" customModule="Trails" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFL-0w-eyg">
-                                        <rect key="frame" x="214" y="500" width="34" height="34"/>
-                                        <state key="normal" image="ic_skip">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="leftButtonTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AvY-en-xVO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ps-jz-T85">
-                                        <rect key="frame" x="349" y="501" width="38" height="34"/>
-                                        <state key="normal" image="ic_like">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="rightButtonTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0aN-6u-R2J"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPt-lh-wEg" customClass="TrailView" customModule="Trails" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" red="1" green="0.54587374078767081" blue="0.45554426111103241" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kFL-0w-eyg">
+                                <rect key="frame" x="60" y="440" width="34" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="29z-Bx-HZb"/>
+                                    <constraint firstAttribute="height" constant="34" id="tXp-mV-Sfv"/>
+                                </constraints>
+                                <state key="normal" image="ic_skip">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leftButtonTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AvY-en-xVO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ps-jz-T85">
+                                <rect key="frame" x="220" y="440" width="38" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="4XH-To-Mia"/>
+                                    <constraint firstAttribute="height" constant="34" id="6wP-wq-dw5"/>
+                                </constraints>
+                                <state key="normal" image="ic_like">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rightButtonTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0aN-6u-R2J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jPt-lh-wEg" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="4AI-n1-rV0"/>
+                            <constraint firstAttribute="trailing" secondItem="jPt-lh-wEg" secondAttribute="trailing" id="8iq-8x-HRj"/>
+                            <constraint firstItem="jPt-lh-wEg" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="JZb-e6-5C4"/>
+                            <constraint firstItem="kFL-0w-eyg" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="44" id="NNv-sF-RHt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3ps-jz-T85" secondAttribute="trailing" constant="46" id="ZrT-dn-Ed0"/>
+                            <constraint firstAttribute="bottom" secondItem="jPt-lh-wEg" secondAttribute="bottom" id="kz7-15-XzJ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="3ps-jz-T85" secondAttribute="bottom" constant="50" id="qTk-ar-XdB"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kFL-0w-eyg" secondAttribute="bottom" constant="50" id="ylR-qI-IOx"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BRC-DT-yZT">
@@ -57,9 +74,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="kolodaView" destination="jPt-lh-wEg" id="veP-RQ-3zj"/>
-                        <outlet property="toggleDropboxLink" destination="Q6L-Dz-oBT" id="ahJ-ic-qla"/>
+                        <outlet property="toggleDropboxLink" destination="Q6L-Dz-oBT" id="h4W-XE-PuC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
