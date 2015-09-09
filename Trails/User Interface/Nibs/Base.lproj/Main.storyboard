@@ -59,6 +59,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="kolodaView" destination="jPt-lh-wEg" id="veP-RQ-3zj"/>
+                        <outlet property="toggleDropboxLink" destination="Q6L-Dz-oBT" id="ahJ-ic-qla"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
