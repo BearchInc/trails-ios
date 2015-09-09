@@ -12,12 +12,10 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     @IBOutlet weak var toggleDropboxLink: UIBarButtonItem!
 
     override func viewDidLoad() {
-        showTrails()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
+        super.viewDidLoad()
+        
         if verifyDropboxAuthorization() {
-//            showTrails()
+            showTrails()
         }
     }
     
