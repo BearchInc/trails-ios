@@ -1,6 +1,6 @@
 {
   "name": "SwiftyDropbox",
-  "version": "0.2",
+  "version": "0.3",
   "summary": "Dropbox Swift SDK for APIv2",
   "homepage": "https://dropbox.com/developers/",
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "Alamofire": [
-      "~> 1.3.0"
+      "~> 2.0.0"
     ]
   }
 }

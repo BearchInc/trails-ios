@@ -10,12 +10,10 @@ public enum JSON {
     case Null
 }
 
-
-
 func objectToJSON(json : AnyObject) -> JSON {
     
     switch json {
-    case let null as NSNull:
+    case is NSNull:
         return .Null
     case let num as NSNumber:
         return .Number(num)
@@ -67,20 +65,18 @@ func dumpJSON(json: JSON) -> NSData? {
     default:
         let obj : AnyObject = prepareJSONForSerialization(json)
         if NSJSONSerialization.isValidJSONObject(obj) {
-            return NSJSONSerialization.dataWithJSONObject(obj, options: nil, error: nil)
+            return try! NSJSONSerialization.dataWithJSONObject(obj, options: NSJSONWritingOptions.PrettyPrinted)
         } else {
             assert(false, "Invalid JSON toplevel type")
-            return NSData()
+            return nil
         }
     }
 }
 
 func parseJSON(data: NSData) -> JSON {
-    var error: NSError?
-    
-    let obj: AnyObject = NSJSONSerialization.JSONObjectWithData(data,
-        options: NSJSONReadingOptions.AllowFragments,
-        error: &error)!
+    print("Parsing Json: \(data)")
+    let obj: AnyObject = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+    print("After Parsing Json: \(obj)")
     return objectToJSON(obj)
     
 }
@@ -88,8 +84,8 @@ func parseJSON(data: NSData) -> JSON {
 
 public protocol JSONSerializer {
     typealias ValueType
-    func serialize(ValueType) -> JSON
-    func deserialize(JSON) -> ValueType
+    func serialize(_: ValueType) -> JSON
+    func deserialize(_: JSON) -> ValueType
 }
 
 public class VoidSerializer : JSONSerializer {
@@ -223,7 +219,7 @@ public class NSDateSerializer : JSONSerializer {
                 }
                 newFormat += symbolForToken(token)
             } else {
-                if contains("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", format[i]) {
+                if "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.contains(format[i]) {
                     if !inQuotedText {
                         newFormat += "'"
                         inQuotedText = true
@@ -341,13 +337,13 @@ public class UInt32Serializer : JSONSerializer {
 
 public class NSDataSerializer : JSONSerializer {
     public func serialize(value : NSData) -> JSON {
-        return .Str(value.base64EncodedStringWithOptions(nil))
+        return .Str(value.base64EncodedStringWithOptions([]))
     }
     
     public func deserialize(json: JSON) -> NSData {
         switch(json) {
         case .Str(let s):
-            return NSData(base64EncodedString: s, options: nil)!
+            return NSData(base64EncodedString: s, options: [])!
         default:
             assert(false, "Type error deserializing")
             return NSData()
@@ -405,26 +401,22 @@ struct Serialization {
     static var _UInt32Serializer = UInt32Serializer()
     static var _Int64Serializer = Int64Serializer()
     static var _Int32Serializer = Int32Serializer()
-
+    
     static var _VoidSerializer = VoidSerializer()
     static var _NSDataSerializer = NSDataSerializer()
     static var _DoubleSerializer = DoubleSerializer()
-
+    
     static func getFields(json : JSON) -> [String : JSON] {
         switch json {
-            case .Dictionary(let dict):
-                return dict
-            default:
-                fatalError("Type error")
+        case .Dictionary(let dict):
+            return dict
+        default:
+            fatalError("Type error")
         }
     }
-
+    
     static func getTag(d: [String : JSON]) -> String {
         return _StringSerializer.deserialize(d[".tag"]!)
     }
-
+    
 }
-
-
-
-

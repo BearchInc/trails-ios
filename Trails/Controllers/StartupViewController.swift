@@ -8,12 +8,12 @@ class StartupViewController: UIViewController {
     }
 
     private func login() {
-        Account.instance.login { (account, error) -> () in
-            if error == nil {
-                println(account)
+        Account.instance.login { (account, errorType) -> () in
+            if account != nil {
+                print(account)
                 self.navigateToHomeViewController()
             } else {
-                println(error)
+                print(errorType.debugDescription)
                 self.showRetry()
             }
         }

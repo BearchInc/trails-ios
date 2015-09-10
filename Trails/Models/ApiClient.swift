@@ -11,7 +11,7 @@ class ApiClient {
     
     private class func setAuthHeaders() -> [String : String]?{
         let plainString = "\(Account.instance.authToken):" as NSString
-        println("Auth string: \(plainString)")
+        print("Auth string: \(plainString)")
         let plainData = plainString.dataUsingEncoding(NSUTF8StringEncoding)
         let base64String = plainData?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
 

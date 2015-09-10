@@ -88,19 +88,20 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     func verifyDropboxAuthorization() ->  Bool {
         if let authorizedClient = Dropbox.authorizedClient {
             
-            let dropboxAccessTokens = DropboxAuthManager.sharedAuthManager.getAllAccessTokens().keys.array
+            let dropboxAccessTokens = DropboxAuthManager.sharedAuthManager.getAllAccessTokens().keys
 
             if dropboxAccessTokens.count > 0 {
                 toggleDropboxLink.title = "Unlink from Dropbox"
-                let userId = dropboxAccessTokens.last!
-                let authToken = DropboxAuthManager.sharedAuthManager.getAccessToken(user: userId)
+                
+                let userId = dropboxAccessTokens.reverse().first!
+                let authToken = DropboxAuthManager.sharedAuthManager.getAccessToken(userId)
                 
                 Account.instance.registerDropbox(userId, accessToken: authToken!.description)
                 authorizedClient.usersGetCurrentAccount().response { response, error in
                     if let account = response {
                         Account.instance.update(account)
                     } else {
-                        println(error!)
+                        print(error!)
                     }
                 }
                 
@@ -116,7 +117,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     }
     
     @IBAction func didTapDropboxLink(sender: AnyObject) {
-        if let authorized = Dropbox.authorizedClient {
+        if let _ = Dropbox.authorizedClient {
             Dropbox.unlinkClient()
             verifyDropboxAuthorization()
         } else {

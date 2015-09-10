@@ -14,14 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         
         if let authResult = Dropbox.handleRedirectURL(url) {
             switch authResult {
             case .Success(let token):
-                println("Success! User is logged into Dropbox.")
+                print("Success! Access token is: \(token)")
             case .Error(let error, let description):
-                println("Error: \(description)")
+                print("Error: \(error) and Desc: \(description)")
             }
         }
         

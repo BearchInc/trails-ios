@@ -17,10 +17,22 @@ class Account : Mappable {
     var email: String!
     var authToken: String!
 
-    static let instance = Account()
+    static var instance = Account()
 
     class func newInstance(map: Map) -> Mappable? {
         return instance
+    }
+    
+    init() {
+        self.id = ""
+        self.firstName = ""
+        self.lastName = ""
+        self.email = ""
+        self.authToken = ""
+    }
+    
+    required init?(_ map: Map){
+        Account.instance = self
     }
 
     func mapping(map: Map) {
@@ -31,10 +43,10 @@ class Account : Mappable {
         authToken <- map["auth_token"]
     }
 
-    func login(completionHandler: (Account?, NSError?) -> ()) {
+    func login(completionHandler: (Account?, ErrorType?) -> Void) {
         let loginParams = ["id": retrieveAccountId()]
-        Alamofire.request(.POST, Config.path(.Login), parameters: loginParams, encoding: .JSON)
-            .responseObject(completionHandler)
+        
+        Alamofire.request(.POST, Config.path(.Login), parameters: loginParams, encoding: .JSON).responseObject(completionHandler)
     }
     
     private func retrieveAccountId() -> String {
@@ -65,7 +77,7 @@ class Account : Mappable {
         ApiClient.request(.POST, path: .UpdateAccount, params: accountParams).response {
             (_, response: NSHTTPURLResponse?, _, error) -> Void in
             if (response?.statusCode >= 400) {
-                println("Unable to update the account")
+                print("Unable to update the account")
             }
         }
     }
@@ -74,7 +86,7 @@ class Account : Mappable {
         ApiClient.request(.POST, path: .RegisterDropbox, params: ["user_id": userId, "access_token": accessToken]).response {
         (_, response: NSHTTPURLResponse?, _, error) -> Void in
             if (response?.statusCode >= 400) {
-                println("Unable to register dropbox")
+                print("Unable to register dropbox")
             }
         }
     }

@@ -20,12 +20,9 @@ class Trail: Mappable {
         case DislikedIt
     }
     
-    class func newInstance(map: Map) -> Mappable? {
+    required init?(_ map: Map){
         
-        var abc: CLLocationCoordinate2D? = CLLocationCoordinate2DMake(0.78, 0.78)
-        return Trail()
     }
-    
     
     func mapping(map: Map) {
         trailType <- (map["trail_type"], EnumTransform<TrailType>())

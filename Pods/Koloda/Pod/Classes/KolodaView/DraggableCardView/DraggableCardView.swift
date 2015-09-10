@@ -52,7 +52,7 @@ public class DraggableCardView: UIView {
         setup()
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
@@ -101,7 +101,7 @@ public class DraggableCardView: UIView {
     
     private func configureOverlayView() {
         if let overlay = self.overlayView {
-            overlay.setTranslatesAutoresizingMaskIntoConstraints(false)
+            overlay.translatesAutoresizingMaskIntoConstraints = false
             
             let width = NSLayoutConstraint(
                 item: overlay,
@@ -141,7 +141,7 @@ public class DraggableCardView: UIView {
     
     private func configureContentView() {
         if let contentView = self.contentView {
-            contentView.setTranslatesAutoresizingMaskIntoConstraints(false)
+            contentView.translatesAutoresizingMaskIntoConstraints = false
             
             let width = NSLayoutConstraint(
                 item: contentView,
@@ -196,8 +196,6 @@ public class DraggableCardView: UIView {
             animationDirection = touchLocation.y >= frame.size.height / 2 ? -1.0 : 1.0
             
             layer.shouldRasterize = true
-            
-            pop_removeAllAnimations()
             break
         case .Changed:
             let rotationStrength = min(xDistanceFromCenter / self.frame.size.width, rotationMax)
