@@ -572,7 +572,7 @@ extension BabelClient {
     /// Get information about the current user's account.
     ///
     public func usersGetCurrentAccount() -> BabelRpcRequest<Users.FullAccountSerializer, VoidSerializer> {
-        return BabelRpcRequest(client: self, host: "meta", route: "/users/get_current_account", params: Serialization._VoidSerializer.serialize(), responseSerializer: Users.FullAccountSerializer(), errorSerializer: Serialization._VoidSerializer)
+        return BabelRpcRequest(client: self, host: "meta", route: "/1/account/info", params: Serialization._VoidSerializer.serialize(), responseSerializer: Users.FullAccountSerializer(), errorSerializer: Serialization._VoidSerializer)
     }
     /// Get the space usage information for the current user's account.
     ///
