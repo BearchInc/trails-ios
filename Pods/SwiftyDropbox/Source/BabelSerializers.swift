@@ -74,9 +74,7 @@ func dumpJSON(json: JSON) -> NSData? {
 }
 
 func parseJSON(data: NSData) -> JSON {
-    print("Parsing Json: \(data)")
     let obj: AnyObject = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
-    print("After Parsing Json: \(obj)")
     return objectToJSON(obj)
     
 }

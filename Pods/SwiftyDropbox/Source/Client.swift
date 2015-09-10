@@ -102,7 +102,6 @@ public class BabelRequest<RType : JSONSerializer, EType : JSONSerializer> {
                 return .RateLimitError
             case 403, 404, 409:
                 let json = parseJSON(data)
-                print("The unacceptance reason is: \(json)")
                 switch json {
                 case .Dictionary(let d):
                     return .RouteError(Box(self.errorSerializer.deserialize(d["reason"]!)))
@@ -129,8 +128,6 @@ public class BabelRpcRequest<RType : JSONSerializer, EType : JSONSerializer> : B
                 let mutableRequest = convertible.URLRequest.copy() as! NSMutableURLRequest
                 mutableRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 mutableRequest.HTTPBody = dumpJSON(params)
-
-                print("The request is: \(mutableRequest)")
                 return (mutableRequest, nil)
             }))
     }
@@ -142,9 +139,7 @@ public class BabelRpcRequest<RType : JSONSerializer, EType : JSONSerializer> : B
         self.request.validate().response {
             (request, response, dataObj, error) -> Void in
             let data = dataObj!
-
             if error != nil {
-                print("The error is: \(error)")
                 completionHandler(nil, self.handleResponseError(response, data: data))
             } else {
                 completionHandler(self.responseSerializer.deserialize(parseJSON(data)), nil)

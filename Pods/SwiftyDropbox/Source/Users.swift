@@ -567,7 +567,7 @@ extension BabelClient {
     ///        A user's account identifier.
     public func usersGetAccount(accountId accountId: String) -> BabelRpcRequest<Users.BasicAccountSerializer, Users.GetAccountErrorSerializer> {
         let request = Users.GetAccountArg(accountId: accountId)
-        return BabelRpcRequest(client: self, host: "meta", route: "/users/get_account", params: Users.GetAccountArgSerializer().serialize(request), responseSerializer: Users.BasicAccountSerializer(), errorSerializer: Users.GetAccountErrorSerializer())
+        return BabelRpcRequest(client: self, host: "meta", route: "/2-beta-2/users/get_account", params: Users.GetAccountArgSerializer().serialize(request), responseSerializer: Users.BasicAccountSerializer(), errorSerializer: Users.GetAccountErrorSerializer())
     }
     /// Get information about the current user's account.
     ///
@@ -577,6 +577,6 @@ extension BabelClient {
     /// Get the space usage information for the current user's account.
     ///
     public func usersGetSpaceUsage() -> BabelRpcRequest<Users.SpaceUsageSerializer, VoidSerializer> {
-        return BabelRpcRequest(client: self, host: "meta", route: "/users/get_space_usage", params: Serialization._VoidSerializer.serialize(), responseSerializer: Users.SpaceUsageSerializer(), errorSerializer: Serialization._VoidSerializer)
+        return BabelRpcRequest(client: self, host: "meta", route: "/2-beta-2/users/get_space_usage", params: Serialization._VoidSerializer.serialize(), responseSerializer: Users.SpaceUsageSerializer(), errorSerializer: Serialization._VoidSerializer)
     }
 }
