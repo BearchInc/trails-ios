@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     
     func downloadFile() {
         
-        Dropbox.authorizedClient?.filesGetThumbnail(path: "/Camera Uploads/2013-02-22 23.56.21.jpg").response { response, error in
+        Dropbox.authorizedClient?.filesGetThumbnail(path: "/Camera Uploads/2013-02-22 23.56.21.jpg", size: Files.ThumbnailSize.W1024h768).response { response, error in
             if let (metadata, data) = response {
                 print("Download files name: \(metadata.name)")
                 self.image = UIImage(data: data)

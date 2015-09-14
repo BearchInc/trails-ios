@@ -55,7 +55,7 @@ CHECKOUT OPTIONS:
     :commit: 7ee2911f7dfc458793808fe8ab5cb6958a2abce3
     :git: https://github.com/Hearst-DD/ObjectMapper.git
   SwiftyDropbox:
-    :commit: b539ba574bba2f375192418f129561e900824a3f
+    :commit: 591caf28805fcbef45c1d2154f9e76b31ad82551
     :git: https://github.com/BearchInc/SwiftyDropbox.git
 
 SPEC CHECKSUMS:
