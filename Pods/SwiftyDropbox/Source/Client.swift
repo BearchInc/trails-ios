@@ -202,9 +202,8 @@ public class BabelDownloadRequest<RType : JSONSerializer, EType : JSONSerializer
                 let mutableRequest = convertible.URLRequest.copy() as! NSMutableURLRequest
                 if let data = dumpJSON(params) {
                     let value = asciiEscape(utf8Decode(data))
-                    mutableRequest.addValue(value, forHTTPHeaderField: "Dropbox-Api-Arg")
+                    mutableRequest.addValue(value, forHTTPHeaderField: "Dropbox-Api-Arg")                    
                 }
-                
                 return (mutableRequest, nil)
             }))
     }
@@ -246,11 +245,11 @@ public class BabelDownloadRequest<RType : JSONSerializer, EType : JSONSerializer
 public class BabelClient {
     var baseHosts : [String : String]
     
-    var manager : Manager
+    var manager : Alamofire.Manager
     
     
     
-    public init(manager : Manager, baseHosts : [String : String]) {
+    public init(manager : Alamofire.Manager, baseHosts : [String : String]) {
         self.baseHosts = baseHosts
         self.manager = manager
     }
