@@ -42,6 +42,14 @@ class Trail: Mappable {
         dislikePath <- map["dislike_path"]
     }
     
+    func didLikeItem() {
+        ApiClient.request(.PATCH, path: likePath, params: nil)
+    }
+    
+    func didDislikeItem() {
+        ApiClient.request(.PATCH, path: dislikePath, params: nil)
+    }
+    
     class func nextEvaluation(completionHandler: ([Trail]?, ErrorType?) -> Void) {
         ApiClient.request(.GET, path: .NextEvaluation, params: nil).responseArray(completionHandler)
     }

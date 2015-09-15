@@ -7,10 +7,10 @@ class Config {
     }
     
     enum Paths: String {
-        case Login = "login"
-        case RegisterDropbox = "account/registerDropbox"
-        case UpdateAccount = "account/update"
-        case NextEvaluation = "account/trails/next_evaluation"
+        case Login = "/login"
+        case RegisterDropbox = "/account/registerDropbox"
+        case UpdateAccount = "/account/update"
+        case NextEvaluation = "/account/trails/next_evaluation"
     }
     
     private static let dev: [Key: String] = [
@@ -35,7 +35,11 @@ class Config {
     ]
     
     class func path(path: Paths) -> String {
-        return get(Key.BaseUrl) + "/" + path.rawValue
+        return get(Key.BaseUrl) + path.rawValue
+    }
+    
+    class func path(path: String) -> String {
+        return get(Key.BaseUrl) + path
     }
     
     class func get(key: Key) -> String {

@@ -43,8 +43,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     
     func thumbNailFor(path: String, completionHandler: ((UIImage) -> Void)) {
         Dropbox.authorizedClient?.filesGetThumbnail(path: path, size: Files.ThumbnailSize.W1024h768).response { response, error in
-            if let (metadata, data) = response {
-                print("Download files name: \(metadata.name)")
+            if let (_, data) = response {
                 completionHandler(UIImage(data: data)!)
             } else {
                 print(error!)
@@ -87,6 +86,16 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     }
     
     func kolodaDidSwipedCardAtIndex(koloda: KolodaView, index: UInt, direction: SwipeResultDirection) {
+        let trail = trails[Int(index)]
+        switch direction{
+        case .Right:
+            trail.didLikeItem()
+        case .Left:
+            trail.didDislikeItem()
+            
+        default:
+            print("Are you serious?")
+        }
     }
     
     func kolodaDidRunOutOfCards(koloda: KolodaView) {
