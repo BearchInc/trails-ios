@@ -39,7 +39,6 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         kolodaView.alphaValueSemiTransparent = 0.1
         kolodaView.countOfVisibleCards = 2
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        kolodaView.reloadData()
     }
     
     func thumbNailFor(path: String, completionHandler: ((UIImage) -> Void)) {
@@ -68,7 +67,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     
     //MARK: KolodaViewDataSource
     func kolodaNumberOfCards(koloda: KolodaView) -> UInt {
-        return 5
+        return UInt(self.trails.count)
     }
     
     func kolodaViewForCardAtIndex(koloda: KolodaView, index: UInt) -> UIView {
@@ -80,21 +79,18 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
             imageView.image = image
         }
         
-        return imageView        
+        return imageView
     }
     func kolodaViewForCardOverlayAtIndex(koloda: KolodaView, index: UInt) -> OverlayView? {
         return NSBundle.mainBundle().loadNibNamed("CustomOverlayView",
             owner: self, options: nil)[0] as? OverlayView
     }
     
-    //MARK: KolodaViewDelegate
-    
     func kolodaDidSwipedCardAtIndex(koloda: KolodaView, index: UInt, direction: SwipeResultDirection) {
     }
     
     func kolodaDidRunOutOfCards(koloda: KolodaView) {
-        //Example: reloading
-        kolodaView.resetCurrentCardNumber()
+        evaluateTrails()
     }
     
     func kolodaDidSelectCardAtIndex(koloda: KolodaView, index: UInt) {
