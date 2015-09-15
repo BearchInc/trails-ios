@@ -19,6 +19,7 @@
 		283835FA1B9F795500D89FA6 /* LocationTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283835F91B9F795500D89FA6 /* LocationTransform.swift */; };
 		283835FC1B9F890D00D89FA6 /* CustomOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283835FB1B9F890D00D89FA6 /* CustomOverlayView.xib */; };
 		283835FE1B9F896E00D89FA6 /* CustomOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283835FD1B9F896E00D89FA6 /* CustomOverlayView.swift */; };
+		28CBDAD91BA89E1C00219CC8 /* TrailDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBDAD81BA89E1C00219CC8 /* TrailDateTransform.swift */; settings = {ASSET_TAGS = (); }; };
 		401E4A69C82BC2024ACBCB64 /* Pods_Trails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A49199C2A83B86B50FFB98 /* Account.swift */; };
 		C0A49A4A03F86C2427F44508 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A493E480EAD96391520E39 /* IPAddress.swift */; };
@@ -54,6 +55,7 @@
 		283835F91B9F795500D89FA6 /* LocationTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTransform.swift; sourceTree = "<group>"; };
 		283835FB1B9F890D00D89FA6 /* CustomOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOverlayView.xib; sourceTree = "<group>"; };
 		283835FD1B9F896E00D89FA6 /* CustomOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOverlayView.swift; sourceTree = "<group>"; };
+		28CBDAD81BA89E1C00219CC8 /* TrailDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailDateTransform.swift; sourceTree = "<group>"; };
 		28EDEA4F1B9A13AA000BFFA7 /* Trails-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trails-Bridging-Header.h"; sourceTree = "<group>"; };
 		762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		979B2078E3859F740B3CA27D /* Pods-Trails.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.staging.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		28378AB01B8D0CB000AC342A /* Trails */ = {
 			isa = PBXGroup;
 			children = (
+				28CBDAD71BA89DFF00219CC8 /* Utils */,
 				28378AD61B8D21B800AC342A /* Controllers */,
 				C0A495D6924EF1F5514B26D2 /* Models */,
 				284B4D301B9095EF009AAE92 /* Startup */,
@@ -184,6 +187,14 @@
 				28378AB31B8D0CB000AC342A /* AppDelegate.swift */,
 			);
 			path = Startup;
+			sourceTree = "<group>";
+		};
+		28CBDAD71BA89DFF00219CC8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				28CBDAD81BA89E1C00219CC8 /* TrailDateTransform.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		3058B5F6A8388AF7A0817AC7 /* Frameworks */ = {
@@ -380,6 +391,7 @@
 				283835FA1B9F795500D89FA6 /* LocationTransform.swift in Sources */,
 				28378AD81B8D21FB00AC342A /* HomeViewController.swift in Sources */,
 				283835FE1B9F896E00D89FA6 /* CustomOverlayView.swift in Sources */,
+				28CBDAD91BA89E1C00219CC8 /* TrailDateTransform.swift in Sources */,
 				C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */,
 				C0A49BD7A3C9CAD82FED24E3 /* Config.swift in Sources */,
 				C0A49A4A03F86C2427F44508 /* IPAddress.swift in Sources */,

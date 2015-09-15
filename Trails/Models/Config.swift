@@ -10,6 +10,7 @@ class Config {
         case Login = "login"
         case RegisterDropbox = "account/registerDropbox"
         case UpdateAccount = "account/update"
+        case NextEvaluation = "account/trails/next_evaluation"
     }
     
     private static let dev: [Key: String] = [

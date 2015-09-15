@@ -2,6 +2,7 @@ import UIKit
 import SwiftyDropbox
 import Koloda
 import pop
+import ObjectMapper
 
 private let frameAnimationSpringBounciness:CGFloat = 9
 private let frameAnimationSpringSpeed:CGFloat = 16
@@ -12,14 +13,26 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     @IBOutlet weak var toggleDropboxLink: UIBarButtonItem!
     
     var image: UIImage!
-
+    var trails = [Trail]()
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if verifyDropboxAuthorization() {
-            downloadFile()
+            evaluateTrails()
         }
     }
-        
+    
+    func evaluateTrails() {
+        Trail.nextEvaluation { (trails: [Trail]?, errorType: ErrorType?) -> Void in
+            if errorType != nil {
+                print(errorType.debugDescription)
+                return
+            }
+            self.trails += trails!
+            self.showTrails()
+        }
+    }
+    
     func showTrails() {
         kolodaView.delegate = self
         kolodaView.dataSource = self
@@ -29,28 +42,16 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         kolodaView.reloadData()
     }
     
-    func downloadFile() {
-        
-        Dropbox.authorizedClient?.filesGetThumbnail(path: "/Camera Uploads/2013-02-22 23.56.21.jpg", size: Files.ThumbnailSize.W1024h768).response { response, error in
+    func thumbNailFor(path: String, completionHandler: ((UIImage) -> Void)) {
+        Dropbox.authorizedClient?.filesGetThumbnail(path: path, size: Files.ThumbnailSize.W1024h768).response { response, error in
             if let (metadata, data) = response {
                 print("Download files name: \(metadata.name)")
-                self.image = UIImage(data: data)
-                self.showTrails()
+                completionHandler(UIImage(data: data)!)
             } else {
                 print(error!)
             }
         }
         
-//        Dropbox.authorizedClient?.filesDownload(path: "/Camera Uploads/2013-02-22 23.56.21.jpg").response{ response, error in
-//            if let (metadata, data) = response {
-//                print("Dowloaded file name: \(metadata.name)")
-//                
-//                self.image = UIImage(data: data)
-//                self.showTrails()
-//            } else {
-//                print(error!)
-//            }
-//        }
     }
     
     @IBAction func leftButtonTapped() {
@@ -73,8 +74,13 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     func kolodaViewForCardAtIndex(koloda: KolodaView, index: UInt) -> UIView {
         let imageView = UIImageView(image: image)
         imageView.contentMode = .ScaleAspectFit
-        return imageView
-//        return UIImageView(image: UIImage(named: "cards_\(index + 1)"))
+        let trail = self.trails[Int(index)]
+        
+        thumbNailFor(trail.mediaPath) { (image: UIImage) -> Void in
+            imageView.image = image
+        }
+        
+        return imageView        
     }
     func kolodaViewForCardOverlayAtIndex(koloda: KolodaView, index: UInt) -> OverlayView? {
         return NSBundle.mainBundle().loadNibNamed("CustomOverlayView",
