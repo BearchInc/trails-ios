@@ -5,10 +5,6 @@
   "homepage": "https://github.com/Yalantis/Koloda",
   "license": "MIT",
   "authors": "Yalantis",
-  "source": {
-    "git": "https://github.com/Yalantis/Koloda.git",
-    "tag": "1.1.1"
-  },
   "social_media_url": "https://twitter.com/yalantis",
   "platforms": {
     "ios": "8.0"

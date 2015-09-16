@@ -24,7 +24,7 @@ DEPENDENCIES:
     branch `swift-2.0`)
   - Crashlytics (~> 3.1.0)
   - Fabric (~> 1.2.8)
-  - Koloda (from `https://github.com/Yalantis/Koloda.git`, branch `swift2.0`)
+  - Koloda (from `https://github.com/BearchInc/Koloda.git`, branch `swift-2.0`)
   - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`, branch `swift-2.0`)
   - SDWebImage (~> 3.7)
   - SSKeychain (= 1.2.3)
@@ -35,8 +35,8 @@ EXTERNAL SOURCES:
     :branch: swift-2.0
     :git: https://github.com/BearchInc/AlamofireObjectMapper.git
   Koloda:
-    :branch: swift2.0
-    :git: https://github.com/Yalantis/Koloda.git
+    :branch: swift-2.0
+    :git: https://github.com/BearchInc/Koloda.git
   ObjectMapper:
     :branch: swift-2.0
     :git: https://github.com/Hearst-DD/ObjectMapper.git
@@ -49,8 +49,8 @@ CHECKOUT OPTIONS:
     :commit: 8ecc4a41b1bebbb86de4b1ce2b8896e56a9b2110
     :git: https://github.com/BearchInc/AlamofireObjectMapper.git
   Koloda:
-    :commit: d61ea556154deae1fa124e498465650179d2db51
-    :git: https://github.com/Yalantis/Koloda.git
+    :commit: a65e6287e7f93c5115afa54f9f2710b132eef8c2
+    :git: https://github.com/BearchInc/Koloda.git
   ObjectMapper:
     :commit: 7ee2911f7dfc458793808fe8ab5cb6958a2abce3
     :git: https://github.com/Hearst-DD/ObjectMapper.git
@@ -63,7 +63,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 2c5bb816765c44b84831d40242f51ea6166f40cd
   Crashlytics: 39ab395565bc03c29cdecd2b9d103ebf30930c10
   Fabric: a9eabe53915e9f1db55a84dd2838737928675878
-  Koloda: a8786f0f67f43bb4e7a8529da517c8423a60c585
+  Koloda: 36080abec104f36f1c537d9df12d20c6b2a4e56a
   ObjectMapper: 0656dc1c155825897e5acfcd25362c6b61786dcb
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

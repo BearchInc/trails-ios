@@ -13,5 +13,5 @@ target :Trails do
     pod 'AlamofireObjectMapper', git: 'https://github.com/BearchInc/AlamofireObjectMapper.git', branch: 'swift-2.0'
 
     pod 'SSKeychain', '1.2.3'
-    pod 'Koloda', git: 'https://github.com/BearchInc/Koloda.git', branch: 'swift2.0'
+    pod 'Koloda', git: 'https://github.com/BearchInc/Koloda.git', branch: 'swift-2.0'
 end
