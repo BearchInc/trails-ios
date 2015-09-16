@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import SwiftyDropbox
+import SwiftDate
 
 class CardView: UIView {
     
@@ -8,9 +9,10 @@ class CardView: UIView {
     @IBOutlet weak var dateLabel: UILabel!
  
     func render(trail: Trail) {
-        
-        dateLabel.text = trail.createdAt.description
+        self.dateLabel.hidden = true
         thumbNailFor(trail.mediaPath) { (image: UIImage) -> Void in
+            self.dateLabel.hidden = false
+            self.dateLabel.text = trail.createdAt.toRelativeString(abbreviated: false, maxUnits: 1).uppercaseString.stringByReplacingOccurrencesOfString("ABOUT", withString: "")
             self.imageView.image = image
             self.imageView.sizeToFit()
         }

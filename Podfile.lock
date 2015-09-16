@@ -15,6 +15,7 @@ PODS:
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
   - SSKeychain (1.2.3)
+  - SwiftDate (1.0.10)
   - SwiftyDropbox (0.3):
     - Alamofire (~> 2.0.0)
 
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`, branch `swift-2.0`)
   - SDWebImage (~> 3.7)
   - SSKeychain (= 1.2.3)
+  - SwiftDate (from `https://github.com/malcommac/SwiftDate.git`, branch `swift-2.0`)
   - SwiftyDropbox (from `https://github.com/BearchInc/SwiftyDropbox.git`, branch `swift-2.0`)
 
 EXTERNAL SOURCES:
@@ -40,6 +42,9 @@ EXTERNAL SOURCES:
   ObjectMapper:
     :branch: swift-2.0
     :git: https://github.com/Hearst-DD/ObjectMapper.git
+  SwiftDate:
+    :branch: swift-2.0
+    :git: https://github.com/malcommac/SwiftDate.git
   SwiftyDropbox:
     :branch: swift-2.0
     :git: https://github.com/BearchInc/SwiftyDropbox.git
@@ -54,6 +59,9 @@ CHECKOUT OPTIONS:
   ObjectMapper:
     :commit: 7ee2911f7dfc458793808fe8ab5cb6958a2abce3
     :git: https://github.com/Hearst-DD/ObjectMapper.git
+  SwiftDate:
+    :commit: 0fa563318bbae2de33c0cd19d2f941e90aa54bd1
+    :git: https://github.com/malcommac/SwiftDate.git
   SwiftyDropbox:
     :commit: 591caf28805fcbef45c1d2154f9e76b31ad82551
     :git: https://github.com/BearchInc/SwiftyDropbox.git
@@ -68,6 +76,7 @@ SPEC CHECKSUMS:
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
+  SwiftDate: e9dbbf7e88d35b6c51a3b6e59c79c5e0d7b8eb1b
   SwiftyDropbox: 4e94cd9f2d365be805e3a5d0b675592a062ec222
 
 COCOAPODS: 0.38.2

@@ -58,6 +58,7 @@ if [[ "$CONFIGURATION" == "Dev" ]]; then
   install_framework 'Pods-Trails/ObjectMapper.framework'
   install_framework 'Pods-Trails/SDWebImage.framework'
   install_framework 'Pods-Trails/SSKeychain.framework'
+  install_framework 'Pods-Trails/SwiftDate.framework'
   install_framework 'Pods-Trails/SwiftyDropbox.framework'
   install_framework 'Pods-Trails/pop.framework'
 fi
@@ -68,6 +69,7 @@ if [[ "$CONFIGURATION" == "Staging" ]]; then
   install_framework 'Pods-Trails/ObjectMapper.framework'
   install_framework 'Pods-Trails/SDWebImage.framework'
   install_framework 'Pods-Trails/SSKeychain.framework'
+  install_framework 'Pods-Trails/SwiftDate.framework'
   install_framework 'Pods-Trails/SwiftyDropbox.framework'
   install_framework 'Pods-Trails/pop.framework'
 fi
@@ -78,6 +80,7 @@ if [[ "$CONFIGURATION" == "AppStore" ]]; then
   install_framework 'Pods-Trails/ObjectMapper.framework'
   install_framework 'Pods-Trails/SDWebImage.framework'
   install_framework 'Pods-Trails/SSKeychain.framework'
+  install_framework 'Pods-Trails/SwiftDate.framework'
   install_framework 'Pods-Trails/SwiftyDropbox.framework'
   install_framework 'Pods-Trails/pop.framework'
 fi

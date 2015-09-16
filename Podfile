@@ -14,4 +14,6 @@ target :Trails do
 
     pod 'SSKeychain', '1.2.3'
     pod 'Koloda', git: 'https://github.com/BearchInc/Koloda.git', branch: 'swift-2.0'
+    
+    pod 'SwiftDate', git: 'https://github.com/malcommac/SwiftDate.git', branch: 'swift-2.0'
 end
