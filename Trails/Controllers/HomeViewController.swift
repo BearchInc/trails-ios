@@ -43,7 +43,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     func showTrails() {
         kolodaView.delegate = self
         kolodaView.dataSource = self
-        kolodaView.alphaValueSemiTransparent = 0.1
+        kolodaView.alphaValueSemiTransparent = 0.7
         kolodaView.countOfVisibleCards = 6
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     }
