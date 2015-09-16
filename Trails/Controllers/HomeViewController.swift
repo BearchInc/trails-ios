@@ -12,7 +12,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     @IBOutlet weak var kolodaView: TrailView!
     @IBOutlet weak var toggleDropboxLink: UIBarButtonItem!
     
-    var trails = [Trail]()
+    var trails: [Trail]!
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -28,11 +28,11 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
                 return
             }
 
-            if self.trails.count == 0 {
+            if let _ = self.trails {
                 self.trails = trails!
                 self.showTrails()
             } else {
-                self.trails += trails!
+                self.trails! += trails!
                 self.showTrails()
                 self.kolodaView.reloadData()
             }

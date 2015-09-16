@@ -8,7 +8,6 @@ class ApiClient {
     }
     
     class func request(method: Alamofire.Method, path: String, params: [String: AnyObject]?) -> Request {
-        setAuthHeaders()
         let urlPath = Config.path(path)
         return Alamofire.request(method, urlPath, parameters: params, encoding: .JSON, headers: setAuthHeaders())
     }
