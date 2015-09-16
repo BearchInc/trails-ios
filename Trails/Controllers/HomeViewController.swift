@@ -12,7 +12,6 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     @IBOutlet weak var kolodaView: TrailView!
     @IBOutlet weak var toggleDropboxLink: UIBarButtonItem!
     
-    var image: UIImage!
     var trails = [Trail]()
     
     override func viewDidAppear(animated: Bool) {
@@ -28,8 +27,16 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
                 print(errorType.debugDescription)
                 return
             }
-            self.trails += trails!
-            self.showTrails()
+
+            if self.trails.count == 0 {
+                self.trails = trails!
+                self.showTrails()
+            } else {
+                self.trails += trails!
+                self.showTrails()
+                self.kolodaView.reloadData()
+            }
+            
         }
     }
     
@@ -37,7 +44,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         kolodaView.delegate = self
         kolodaView.dataSource = self
         kolodaView.alphaValueSemiTransparent = 0.1
-        kolodaView.countOfVisibleCards = 2
+        kolodaView.countOfVisibleCards = 6
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     }
     
@@ -70,7 +77,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     }
     
     func kolodaViewForCardAtIndex(koloda: KolodaView, index: UInt) -> UIView {
-        let imageView = UIImageView(image: image)
+        let imageView = UIImageView()
         imageView.contentMode = .ScaleAspectFit
         let trail = self.trails[Int(index)]
         
@@ -86,6 +93,11 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     }
     
     func kolodaDidSwipedCardAtIndex(koloda: KolodaView, index: UInt, direction: SwipeResultDirection) {
+        if Int(index) >= trails.count {
+            print("What the fuck is happening!!")
+            return
+        }
+        
         let trail = trails[Int(index)]
         switch direction{
         case .Right:
@@ -103,7 +115,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     }
     
     func kolodaDidSelectCardAtIndex(koloda: KolodaView, index: UInt) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://yalantis.com/")!)
+        //do something magical here
     }
     
     func kolodaShouldApplyAppearAnimation(koloda: KolodaView) -> Bool {
