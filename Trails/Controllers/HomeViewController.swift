@@ -29,12 +29,12 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
             }
 
             if let _ = self.trails {
-                self.trails = trails!
-                self.showTrails()
-            } else {
                 self.trails! += trails!
                 self.showTrails()
                 self.kolodaView.reloadData()
+            } else {
+                self.trails = trails!
+                self.showTrails()
             }
             
         }
