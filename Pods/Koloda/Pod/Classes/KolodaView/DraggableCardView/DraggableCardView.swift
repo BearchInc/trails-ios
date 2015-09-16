@@ -74,6 +74,7 @@ public class DraggableCardView: UIView {
     }
     
     private func setup() {
+        clipsToBounds = true
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("panGestureRecognized:"))
         addGestureRecognizer(panGestureRecognizer)
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("tapRecognized:"))

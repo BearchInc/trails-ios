@@ -48,17 +48,6 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     }
     
-    func thumbNailFor(path: String, completionHandler: ((UIImage) -> Void)) {
-        Dropbox.authorizedClient?.filesGetThumbnail(path: path, size: Files.ThumbnailSize.W1024h768).response { response, error in
-            if let (_, data) = response {
-                completionHandler(UIImage(data: data)!)
-            } else {
-                print(error!)
-            }
-        }
-        
-    }
-    
     @IBAction func leftButtonTapped() {
         kolodaView?.swipe(SwipeResultDirection.Left)
     }
@@ -77,16 +66,13 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     }
     
     func kolodaViewForCardAtIndex(koloda: KolodaView, index: UInt) -> UIView {
-        let imageView = UIImageView()
-        imageView.contentMode = .ScaleAspectFit
-        let trail = self.trails[Int(index)]
-        
-        thumbNailFor(trail.mediaPath) { (image: UIImage) -> Void in
-            imageView.image = image
-        }
-        
-        return imageView
+        let cardView = NSBundle.mainBundle().loadNibNamed("CardView",
+        owner: self, options: nil)[0] as! CardView
+
+        cardView.render(trails[Int(index)])
+        return cardView
     }
+    
     func kolodaViewForCardOverlayAtIndex(koloda: KolodaView, index: UInt) -> OverlayView? {
         return NSBundle.mainBundle().loadNibNamed("CustomOverlayView",
             owner: self, options: nil)[0] as? OverlayView
