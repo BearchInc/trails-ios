@@ -14,7 +14,6 @@ class CardView: UIView {
             self.dateLabel.hidden = false
             self.dateLabel.text = trail.createdAt.toRelativeString(abbreviated: false, maxUnits: 1).uppercaseString.stringByReplacingOccurrencesOfString("ABOUT", withString: "")
             self.imageView.image = image
-            self.imageView.sizeToFit()
         }
     }
     
