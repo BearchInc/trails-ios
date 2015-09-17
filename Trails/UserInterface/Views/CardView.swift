@@ -10,36 +10,38 @@ class CardView: UIView {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    private var trail: Trail!
+    
     func render(trail: Trail) {
-        dateLabel.hidden = true
+        self.trail = trail
         activityIndicator.startAnimating()
-        fetchAndRenderImage(trail, completion: renderTrail)
+        fetchAndRenderImage()
     }
     
-    private func fetchAndRenderImage(trail: Trail, completion: (trail: Trail, image: UIImage) -> Void) {
-        let cache = Shared.imageCache
-
-        cache.fetch(key: trail.mediaPath).onSuccess { image in
-            completion(trail: trail, image: image)
-        }.onFailure { _ in
-            self.thumbNailFor(trail.mediaPath) { (image) in
-                cache.set(value: image, key: trail.mediaPath)
-                completion(trail: trail, image: image)
-            }
-        }
+    private func fetchAndRenderImage() {
+        Shared.imageCache.fetch(key: trail.mediaPath)
+            .onSuccess (renderTrail)
+            .onFailure (handleCacheMiss)
     }
     
-    private func renderTrail(trail: Trail, image: UIImage) {
-        self.activityIndicator.stopAnimating()
-        self.dateLabel.hidden = false
-        self.dateLabel.text = trail.createdAt.toRelativeString(abbreviated: false, maxUnits: 1).uppercaseString.stringByReplacingOccurrencesOfString("ABOUT", withString: "")
-        self.imageView.image = image
+    private func handleCacheMiss(error: NSError?) {
+        fetchThumbnail(trail.mediaPath, completionHandler: renderTrail)
     }
     
-    private func thumbNailFor(path: String, completionHandler: ((UIImage) -> Void)) {
+    private func renderTrail(image: UIImage) {
+        activityIndicator.stopAnimating()
+        dateLabel.hidden = false
+        dateLabel.text = trail.createdAt.toRelativeString(abbreviated: false, maxUnits: 1).uppercaseString.stringByReplacingOccurrencesOfString("ABOUT", withString: "")
+        imageView.image = image
+    }
+    
+    private func fetchThumbnail(path: String, completionHandler: (UIImage -> Void)) {
         Dropbox.authorizedClient?.filesGetThumbnail(path: path, size: Files.ThumbnailSize.W1024h768).response { response, error in
             if let (_, data) = response {
-                completionHandler(UIImage(data: data)!)
+                let image = UIImage(data: data)!
+
+                Shared.imageCache.set(value: image, key: self.trail.mediaPath)
+                completionHandler(image)
             } else {
                 print(error!)
             }
