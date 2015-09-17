@@ -71,6 +71,14 @@
 				);
 			};
 		};
+		289CC8D01BAB5319001E62C5 = {
+			isa = PBXBuildFile;
+			fileRef = 289CC8CF1BAB5319001E62C5;
+			settings = {
+				ASSET_TAGS = (
+				);
+			};
+		};
 		28CBDAD91BA89E1C00219CC8 = {
 			isa = PBXBuildFile;
 			fileRef = 28CBDAD81BA89E1C00219CC8;
@@ -249,6 +257,13 @@
 			path = CardView.swift;
 			sourceTree = "<group>";
 		};
+		289CC8CF1BAB5319001E62C5 = {
+			isa = PBXFileReference;
+			fileEncoding = 4;
+			lastKnownFileType = sourcecode.swift;
+			path = TrailDataSource.swift;
+			sourceTree = "<group>";
+		};
 		28CBDAD81BA89E1C00219CC8 = {
 			isa = PBXFileReference;
 			fileEncoding = 4;
@@ -359,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				28378AD61B8D21B800AC342A,
+				289CC8CE1BAB52F7001E62C5,
 				C0A495D6924EF1F5514B26D2,
 				284B4D301B9095EF009AAE92,
 				28378AB11B8D0CB000AC342A,
@@ -430,7 +446,6 @@
 				283835F61B9F601C00D89FA6,
 				283835F11B9F5EE700D89FA6,
 			);
-			name = UserInterface;
 			path = UserInterface;
 			sourceTree = "<group>";
 		};
@@ -442,12 +457,20 @@
 			path = Startup;
 			sourceTree = "<group>";
 		};
+		289CC8CE1BAB52F7001E62C5 = {
+			isa = PBXGroup;
+			children = (
+				289CC8CF1BAB5319001E62C5,
+			);
+			name = DataSources;
+			path = DataSources;
+			sourceTree = "<group>";
+		};
 		28CBDAD71BA89DFF00219CC8 = {
 			isa = PBXGroup;
 			children = (
 				28CBDAD81BA89E1C00219CC8,
 			);
-			name = Utils;
 			path = Utils;
 			sourceTree = "<group>";
 		};
@@ -649,6 +672,7 @@
 				28378AD81B8D21FB00AC342A,
 				289CC8CD1BAA140A001E62C5,
 				283835FE1B9F896E00D89FA6,
+				289CC8D01BAB5319001E62C5,
 				28CBDAD91BA89E1C00219CC8,
 				C0A4922B03CD2BF393C45B7E,
 				C0A49BD7A3C9CAD82FED24E3,

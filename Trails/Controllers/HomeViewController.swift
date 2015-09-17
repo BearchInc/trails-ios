@@ -7,49 +7,49 @@ import ObjectMapper
 private let frameAnimationSpringBounciness:CGFloat = 9
 private let frameAnimationSpringSpeed:CGFloat = 16
 
-class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate {
+class HomeViewController: UIViewController, KolodaViewDelegate {
     
     @IBOutlet weak var kolodaView: TrailView!
     @IBOutlet weak var toggleDropboxLink: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    var trails: [Trail]!
+    var trailDataSource = TrailDataSource()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupKolodaView()
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if verifyDropboxAuthorization() {
-            evaluateTrails()
+            kolodaView.dataSource = trailDataSource
+            fetchNextEvaluation()
         } else {
+            
             activityIndicator.stopAnimating()
         }
     }
     
-    func evaluateTrails() {
+    func fetchNextEvaluation() {
         activityIndicator.startAnimating()
-        Trail.nextEvaluation { (trails: [Trail]?, errorType: ErrorType?) -> Void in
-            self.activityIndicator.stopAnimating()
-            if errorType != nil {
-                print(errorType.debugDescription)
-                return
-            }
-
-            if let _ = self.trails {
-                self.trails! += trails!
-                self.showTrails()
-                self.kolodaView.reloadData()
-            } else {
-                self.trails = trails!
-                self.showTrails()
-            }
-            
-        }
+        trailDataSource.fetchNext(dataSourceFetchSuccess, failure: dataSourceFetchFailure)
     }
     
-    func showTrails() {
+    private func dataSourceFetchFailure() {
+        self.activityIndicator.stopAnimating()
+    }
+    
+    private func dataSourceFetchSuccess() {
+        self.activityIndicator.stopAnimating()
+        self.kolodaView.reloadData()
+    }
+    
+    func setupKolodaView() {
         kolodaView.delegate = self
-        kolodaView.dataSource = self
         kolodaView.alphaValueSemiTransparent = 0.1
-        kolodaView.countOfVisibleCards = 3
+        kolodaView.countOfVisibleCards = 6
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     }
     
@@ -65,31 +65,14 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         kolodaView?.revertAction()
     }
     
-    //MARK: KolodaViewDataSource
-    func kolodaNumberOfCards(koloda: KolodaView) -> UInt {
-        return UInt(self.trails.count)
-    }
-    
-    func kolodaViewForCardAtIndex(koloda: KolodaView, index: UInt) -> UIView {
-        let cardView = NSBundle.mainBundle().loadNibNamed("CardView",
-        owner: self, options: nil)[0] as! CardView
-
-        cardView.render(trails[Int(index)])
-        return cardView
-    }
-    
-    func kolodaViewForCardOverlayAtIndex(koloda: KolodaView, index: UInt) -> OverlayView? {
-        return NSBundle.mainBundle().loadNibNamed("CustomOverlayView",
-            owner: self, options: nil)[0] as? OverlayView
-    }
     
     func kolodaDidSwipedCardAtIndex(koloda: KolodaView, index: UInt, direction: SwipeResultDirection) {
-        if Int(index) >= trails.count {
+        if Int(index) >= trailDataSource.trails.count {
             print("What the fuck is happening!!")
             return
         }
         
-        let trail = trails[Int(index)]
+        let trail = trailDataSource.trails[Int(index)]
         switch direction{
         case .Right:
             trail.didLikeItem()
@@ -102,7 +85,7 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     }
     
     func kolodaDidRunOutOfCards(koloda: KolodaView) {
-        evaluateTrails()
+        fetchNextEvaluation()
     }
     
     func kolodaDidSelectCardAtIndex(koloda: KolodaView, index: UInt) {
