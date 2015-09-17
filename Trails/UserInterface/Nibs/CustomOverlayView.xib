@@ -22,6 +22,9 @@
                 <constraint firstAttribute="bottom" secondItem="EAs-ve-9HP" secondAttribute="bottom" id="cE3-Dz-p7e"/>
                 <constraint firstItem="EAs-ve-9HP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lfj-y5-ObY"/>
             </constraints>
+            <connections>
+                <outlet property="overlayImageView" destination="EAs-ve-9HP" id="HRN-mz-pkk"/>
+            </connections>
         </view>
     </objects>
 </document>
