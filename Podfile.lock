@@ -7,6 +7,7 @@ PODS:
   - Fabric (1.2.8):
     - Fabric/Base (= 1.2.8)
   - Fabric/Base (1.2.8)
+  - HanekeSwift (0.9.1)
   - Koloda (1.1.1.swift.2.0):
     - pop (~> 1.0)
   - ObjectMapper (0.15)
@@ -25,6 +26,7 @@ DEPENDENCIES:
     branch `swift-2.0`)
   - Crashlytics (~> 3.1.0)
   - Fabric (~> 1.2.8)
+  - HanekeSwift (from `https://github.com/meteochu/HanekeSwift.git`, branch `swift-2.0`)
   - Koloda (from `https://github.com/BearchInc/Koloda.git`, branch `swift-2.0`)
   - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`, branch `swift-2.0`)
   - SDWebImage (~> 3.7)
@@ -36,6 +38,9 @@ EXTERNAL SOURCES:
   AlamofireObjectMapper:
     :branch: swift-2.0
     :git: https://github.com/BearchInc/AlamofireObjectMapper.git
+  HanekeSwift:
+    :branch: swift-2.0
+    :git: https://github.com/meteochu/HanekeSwift.git
   Koloda:
     :branch: swift-2.0
     :git: https://github.com/BearchInc/Koloda.git
@@ -53,6 +58,9 @@ CHECKOUT OPTIONS:
   AlamofireObjectMapper:
     :commit: 8ecc4a41b1bebbb86de4b1ce2b8896e56a9b2110
     :git: https://github.com/BearchInc/AlamofireObjectMapper.git
+  HanekeSwift:
+    :commit: f87220fccba7810955fe5392ebd492a5c9baf050
+    :git: https://github.com/meteochu/HanekeSwift.git
   Koloda:
     :commit: a65e6287e7f93c5115afa54f9f2710b132eef8c2
     :git: https://github.com/BearchInc/Koloda.git
@@ -71,6 +79,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 2c5bb816765c44b84831d40242f51ea6166f40cd
   Crashlytics: 39ab395565bc03c29cdecd2b9d103ebf30930c10
   Fabric: a9eabe53915e9f1db55a84dd2838737928675878
+  HanekeSwift: 50d37bfbc4432edc649167e538c259feccb4a2bb
   Koloda: 36080abec104f36f1c537d9df12d20c6b2a4e56a
   ObjectMapper: 0656dc1c155825897e5acfcd25362c6b61786dcb
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
