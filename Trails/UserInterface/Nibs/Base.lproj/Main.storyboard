@@ -84,12 +84,12 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BRC-DT-yZT">
-                        <barButtonItem key="leftBarButtonItem" title="Link Dropbox" id="Q6L-Dz-oBT">
+                        <barButtonItem key="leftBarButtonItem" image="LinkIcon" id="Q6L-Dz-oBT">
                             <connections>
                                 <action selector="didTapDropboxLink:" destination="vXZ-lx-hvc" id="nzq-t3-Hq5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="ic_undo" id="YkT-B7-qg5">
+                        <barButtonItem key="rightBarButtonItem" image="Undo" id="YkT-B7-qg5">
                             <connections>
                                 <action selector="undoButtonTapped" destination="vXZ-lx-hvc" id="vs9-Il-ymf"/>
                             </connections>
@@ -148,8 +148,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LinkIcon" width="22" height="22"/>
+        <image name="Undo" width="21" height="12"/>
         <image name="ic_like" width="38" height="34"/>
         <image name="ic_skip" width="34" height="34"/>
-        <image name="ic_undo" width="21" height="21"/>
     </resources>
+    <color key="tintColor" red="0.68627450980000004" green="0.80784313730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

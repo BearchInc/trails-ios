@@ -19,6 +19,8 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
         super.viewDidAppear(animated)
         if verifyDropboxAuthorization() {
             evaluateTrails()
+        } else {
+            activityIndicator.stopAnimating()
         }
     }
     
@@ -128,12 +130,10 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     
     func verifyDropboxAuthorization() ->  Bool {
         if let authorizedClient = Dropbox.authorizedClient {
-            
+            toggleDropboxLink.enabled = false
             let dropboxAccessTokens = DropboxAuthManager.sharedAuthManager.getAllAccessTokens().keys
 
             if dropboxAccessTokens.count > 0 {
-                toggleDropboxLink.title = "Unlink from Dropbox"
-                
                 let userId = dropboxAccessTokens.reverse().first!
                 let authToken = DropboxAuthManager.sharedAuthManager.getAccessToken(userId)
                 
@@ -149,11 +149,10 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
                 return true
             } else {
                 Dropbox.unlinkClient()
-                sleep(1)
                 return verifyDropboxAuthorization()
             }
         }
-        toggleDropboxLink.title = "Link with Dropbox"
+        toggleDropboxLink.enabled = true
         return false
     }
     
