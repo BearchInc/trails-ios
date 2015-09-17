@@ -21,12 +21,12 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-e0-ZVw">
-                                        <rect key="frame" x="142" y="233" width="37" height="37"/>
+                                        <rect key="frame" x="142" y="207.5" width="37" height="37"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.68627450980392157" green="0.80784313725490198" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Abe-e0-ZVw" firstAttribute="centerY" secondItem="jPt-lh-wEg" secondAttribute="centerY" id="a1C-Iu-Z1b"/>
+                                    <constraint firstItem="Abe-e0-ZVw" firstAttribute="centerY" secondItem="jPt-lh-wEg" secondAttribute="centerY" constant="-26" id="a1C-Iu-Z1b"/>
                                     <constraint firstItem="Abe-e0-ZVw" firstAttribute="centerX" secondItem="jPt-lh-wEg" secondAttribute="centerX" id="hXH-AW-AZB"/>
                                 </constraints>
                             </view>

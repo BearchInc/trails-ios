@@ -7,10 +7,13 @@ class CardView: UIView {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
  
     func render(trail: Trail) {
         self.dateLabel.hidden = true
+        activityIndicator.startAnimating()
         thumbNailFor(trail.mediaPath) { (image: UIImage) -> Void in
+            self.activityIndicator.stopAnimating()
             self.dateLabel.hidden = false
             self.dateLabel.text = trail.createdAt.toRelativeString(abbreviated: false, maxUnits: 1).uppercaseString.stringByReplacingOccurrencesOfString("ABOUT", withString: "")
             self.imageView.image = image

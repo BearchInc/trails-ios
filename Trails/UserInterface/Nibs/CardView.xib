@@ -25,17 +25,23 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4GH-xB-4Fi">
+                    <rect key="frame" x="282" y="281" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.68627450980000004" green="0.80784313730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="RR7-Ec-2GJ" secondAttribute="bottom" id="K0o-nd-Ovr"/>
+                <constraint firstItem="4GH-xB-4Fi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LNu-eC-q9w"/>
                 <constraint firstItem="RR7-Ec-2GJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="alm-3s-KU7"/>
                 <constraint firstAttribute="trailing" secondItem="RR7-Ec-2GJ" secondAttribute="trailing" id="iAf-Xu-qjo"/>
                 <constraint firstItem="JzM-Ps-SNq" firstAttribute="leading" secondItem="RR7-Ec-2GJ" secondAttribute="leading" id="jhY-l6-wRe"/>
                 <constraint firstItem="RR7-Ec-2GJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lIf-A8-fsj"/>
+                <constraint firstItem="4GH-xB-4Fi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mz6-vd-nfb"/>
                 <constraint firstItem="JzM-Ps-SNq" firstAttribute="top" secondItem="RR7-Ec-2GJ" secondAttribute="top" id="ydQ-6k-iZu"/>
             </constraints>
             <connections>
+                <outlet property="activityIndicator" destination="4GH-xB-4Fi" id="d9v-Ml-i95"/>
                 <outlet property="dateLabel" destination="JzM-Ps-SNq" id="JAR-yR-bOj"/>
                 <outlet property="imageView" destination="RR7-Ec-2GJ" id="pXh-c5-PyA"/>
             </connections>
