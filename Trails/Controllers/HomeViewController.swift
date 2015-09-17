@@ -11,7 +11,8 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     
     @IBOutlet weak var kolodaView: TrailView!
     @IBOutlet weak var toggleDropboxLink: UIBarButtonItem!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     var trails: [Trail]!
     
     override func viewDidAppear(animated: Bool) {
@@ -22,7 +23,9 @@ class HomeViewController: UIViewController, KolodaViewDataSource, KolodaViewDele
     }
     
     func evaluateTrails() {
+        activityIndicator.startAnimating()
         Trail.nextEvaluation { (trails: [Trail]?, errorType: ErrorType?) -> Void in
+            self.activityIndicator.stopAnimating()
             if errorType != nil {
                 print(errorType.debugDescription)
                 return

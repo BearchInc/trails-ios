@@ -19,7 +19,16 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPt-lh-wEg" customClass="TrailView" customModule="Trails" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-e0-ZVw">
+                                        <rect key="frame" x="142" y="233" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.68627450980392157" green="0.80784313725490198" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Abe-e0-ZVw" firstAttribute="centerY" secondItem="jPt-lh-wEg" secondAttribute="centerY" id="a1C-Iu-Z1b"/>
+                                    <constraint firstItem="Abe-e0-ZVw" firstAttribute="centerX" secondItem="jPt-lh-wEg" secondAttribute="centerX" id="hXH-AW-AZB"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqv-g5-kFW">
                                 <rect key="frame" x="4" y="457" width="312" height="55"/>
@@ -90,6 +99,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Abe-e0-ZVw" id="sGv-gL-ztZ"/>
                         <outlet property="kolodaView" destination="jPt-lh-wEg" id="veP-RQ-3zj"/>
                         <outlet property="toggleDropboxLink" destination="Q6L-Dz-oBT" id="h4W-XE-PuC"/>
                     </connections>
