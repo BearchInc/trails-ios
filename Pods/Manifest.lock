@@ -11,7 +11,7 @@ PODS:
   - Koloda (1.1.1.swift.2.0):
     - pop (~> 1.0)
   - ObjectMapper (0.15)
-  - pop (1.0.7)
+  - pop (1.0.8)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -62,7 +62,7 @@ CHECKOUT OPTIONS:
     :commit: f87220fccba7810955fe5392ebd492a5c9baf050
     :git: https://github.com/meteochu/HanekeSwift.git
   Koloda:
-    :commit: a65e6287e7f93c5115afa54f9f2710b132eef8c2
+    :commit: 2fda739b9e266e260e86a321f0cdba9795b0fd4a
     :git: https://github.com/BearchInc/Koloda.git
   ObjectMapper:
     :commit: 7ee2911f7dfc458793808fe8ab5cb6958a2abce3
@@ -82,7 +82,7 @@ SPEC CHECKSUMS:
   HanekeSwift: 50d37bfbc4432edc649167e538c259feccb4a2bb
   Koloda: 36080abec104f36f1c537d9df12d20c6b2a4e56a
   ObjectMapper: 0656dc1c155825897e5acfcd25362c6b61786dcb
-  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
   SwiftDate: e9dbbf7e88d35b6c51a3b6e59c79c5e0d7b8eb1b
