@@ -11,8 +11,6 @@ class TrailDataSource: KolodaViewDataSource {
     
     func kolodaViewForCardAtIndex(koloda: KolodaView, index: UInt) -> UIView {
         let cardView = getViewFromNibNamed("CardView") as! CardView
-        
-        print("Hey, card for index ->>> \(index)")
         cardView.render(trails[Int(index)])
         return cardView
     }
@@ -21,22 +19,19 @@ class TrailDataSource: KolodaViewDataSource {
         return getViewFromNibNamed("CustomOverlayView") as? OverlayView
     }
     
-    
     func fetchNext(success: Void -> Void, failure: Void -> Void) {
         Trail.nextEvaluation { (trails: [Trail]?, errorType: ErrorType?) -> Void in
 
-            if errorType != nil {
-                print(errorType.debugDescription)
-                failure()
-                return
-            }
-            
-            self.trails += trails!
+			guard errorType == nil else {
+				print(errorType.debugDescription)
+				failure()
+				return
+			}
 
+            self.trails += trails!
             success()
         }
     }
-    
     
     private func getViewFromNibNamed(name: String) -> UIView {
         return NSBundle.mainBundle().loadNibNamed(name, owner: nil, options: nil)[0] as! UIView

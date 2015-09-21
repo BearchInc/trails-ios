@@ -18,7 +18,6 @@ class HomeViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		Dropbox.unlinkClient()
 		setupKolodaView()
 	}
 	
@@ -136,6 +135,12 @@ extension HomeViewController: KolodaViewDelegate {
 	
 	func kolodaDidSwipedCardAtIndex(koloda: KolodaView, index: UInt, direction: SwipeResultDirection) {
 		if !isShowingTutorial() {
+			let numberOfCards = trailDataSource.kolodaNumberOfCards(kolodaView)
+			guard index < numberOfCards - 1 else {
+				print("Index out of bounds benchod!")
+				return
+			}
+			
 			didSwipeTrailAtIndex(Int(index), direction: direction)
 		} else {
 			let numberOfCards = tutorialDataSource.kolodaNumberOfCards(kolodaView)
