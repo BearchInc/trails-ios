@@ -84,7 +84,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BRC-DT-yZT">
-                        <barButtonItem key="leftBarButtonItem" image="LinkIcon" id="Q6L-Dz-oBT">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="LinkIcon" id="Q6L-Dz-oBT">
                             <connections>
                                 <action selector="didTapDropboxLink:" destination="vXZ-lx-hvc" id="nzq-t3-Hq5"/>
                             </connections>
@@ -149,7 +149,7 @@
     </scenes>
     <resources>
         <image name="LinkIcon" width="22" height="22"/>
-        <image name="Undo" width="21" height="12"/>
+        <image name="Undo" width="30" height="16"/>
         <image name="ic_like" width="38" height="34"/>
         <image name="ic_skip" width="34" height="34"/>
     </resources>

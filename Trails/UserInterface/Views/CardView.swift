@@ -17,6 +17,11 @@ class CardView: UIView {
         activityIndicator.startAnimating()
         fetchAndRenderImage()
     }
+	
+	func render(image: UIImage) {
+		activityIndicator.stopAnimating()
+		imageView.image = image
+	}
     
     private func fetchAndRenderImage() {
         Shared.imageCache.fetch(key: trail.mediaPath)
