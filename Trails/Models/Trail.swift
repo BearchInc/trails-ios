@@ -37,7 +37,6 @@ class Trail: Mappable {
         mediaPath <- map["media_path"]
         thumbExists <- map["thumb_exists"]
         mimeType <- map["mime_type"]
-        
         likePath <- map["like_path"]
         dislikePath <- map["dislike_path"]
     }
