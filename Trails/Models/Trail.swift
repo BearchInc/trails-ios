@@ -26,14 +26,9 @@ class Trail: Mappable {
         case DislikedIt
     }
     
-    required init?(_ map: Map){
-        
+    required init?(_ map: Map){        
     }
-	
-	init() {
-		
-	}
-	
+
     func mapping(map: Map) {
         trailType <- (map["trail_type"], EnumTransform<TrailType>())
         likeness <- (map["likeness"], EnumTransform<LikenessType>())

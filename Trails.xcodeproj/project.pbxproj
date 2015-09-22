@@ -266,6 +266,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28378ACD1B8D0CB000AC342A /* Build configuration list for PBXNativeTarget "Trails" */;
 			buildPhases = (
+				966AD6FE1BB1E92C005C4DD6 /* Run Script - Ip Address */,
 				B0E9323726649C4AF7E69D04 /* Check Pods Manifest.lock */,
 				28378AAA1B8D0CB000AC342A /* Sources */,
 				28378AAB1B8D0CB000AC342A /* Frameworks */,
@@ -390,6 +391,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Trails/Pods-Trails-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		966AD6FE1BB1E92C005C4DD6 /* Run Script - Ip Address */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script - Ip Address";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ruby ip_address.rb\n";
 		};
 		B0E9323726649C4AF7E69D04 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
