@@ -25,6 +25,7 @@
 		28CBDAD91BA89E1C00219CC8 /* TrailDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBDAD81BA89E1C00219CC8 /* TrailDateTransform.swift */; settings = {ASSET_TAGS = (); }; };
 		401E4A69C82BC2024ACBCB64 /* Pods_Trails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		960B5CFB1BB08E7300A9D7DE /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960B5CFA1BB08E7300A9D7DE /* StoriesViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		966AD6FD1BB1C9FE005C4DD6 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966AD6FC1BB1C9FE005C4DD6 /* Story.swift */; settings = {ASSET_TAGS = (); }; };
 		966C0B8D1BACA11C00C29485 /* TutorialDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966C0B8C1BACA11C00C29485 /* TutorialDataSource.swift */; settings = {ASSET_TAGS = (); }; };
 		96D63F3F1BB1C13A002B6194 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D63F3E1BB1C13A002B6194 /* StoryCell.swift */; settings = {ASSET_TAGS = (); }; };
 		C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A49199C2A83B86B50FFB98 /* Account.swift */; };
@@ -68,6 +69,7 @@
 		28EDEA4F1B9A13AA000BFFA7 /* Trails-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trails-Bridging-Header.h"; sourceTree = "<group>"; };
 		762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		960B5CFA1BB08E7300A9D7DE /* StoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
+		966AD6FC1BB1C9FE005C4DD6 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		966C0B8C1BACA11C00C29485 /* TutorialDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialDataSource.swift; sourceTree = "<group>"; };
 		96D63F3E1BB1C13A002B6194 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
 		979B2078E3859F740B3CA27D /* Pods-Trails.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.staging.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				C0A493E480EAD96391520E39 /* IPAddress.swift */,
 				283835F91B9F795500D89FA6 /* LocationTransform.swift */,
 				283835F71B9F6C0500D89FA6 /* Trail.swift */,
+				966AD6FC1BB1C9FE005C4DD6 /* Story.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				C0A49BD7A3C9CAD82FED24E3 /* Config.swift in Sources */,
 				960B5CFB1BB08E7300A9D7DE /* StoriesViewController.swift in Sources */,
 				C0A49A4A03F86C2427F44508 /* IPAddress.swift in Sources */,
+				966AD6FD1BB1C9FE005C4DD6 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

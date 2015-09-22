@@ -29,6 +29,11 @@ class TrailDataSource: KolodaViewDataSource {
 			}
 
             self.trails += trails!
+			
+			for trail in trails! {
+				print(trail.mediaPath)
+			}
+			
             success()
         }
     }

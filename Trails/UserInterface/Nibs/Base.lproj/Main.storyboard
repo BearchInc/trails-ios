@@ -139,29 +139,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1m-UM-TDp" userLabel="PLEASE LEAVE ME HERE - TALK TO HECK">
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9nn-y3-gC6">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="-64" maxX="0.0" maxY="0.0"/>
+                                <rect key="frame" x="1" y="64" width="598" height="492"/>
+                                <color key="backgroundColor" red="0.68627450980000004" green="0.80784313730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewLayout key="collectionViewLayout" id="Eak-hT-myR" customClass="RAMCollectionViewFlemishBondLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StoryCellIdentifier" id="eI4-7r-0GM" customClass="StoryCell" customModule="Trails" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_like" translatesAutoresizingMaskIntoConstraints="NO" id="dkk-b1-Bds" userLabel="Story Image">
-                                                    <rect key="frame" x="0.0" y="10" width="100" height="70"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_like" translatesAutoresizingMaskIntoConstraints="NO" id="dkk-b1-Bds" userLabel="Story Image">
+                                                    <rect key="frame" x="1" y="1" width="98" height="98"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhQ-PD-ETl" userLabel="Title">
-                                                    <rect key="frame" x="0.0" y="80" width="100" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhQ-PD-ETl" userLabel="Title Label">
+                                                    <rect key="frame" x="1" y="79" width="98" height="20"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="hIY-fI-hAW"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -169,15 +176,27 @@
                                         </view>
                                         <color key="backgroundColor" red="0.98431372549999996" green="0.22352941179999999" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="FhQ-PD-ETl" secondAttribute="trailing" id="1QQ-jc-ash"/>
-                                            <constraint firstItem="FhQ-PD-ETl" firstAttribute="leading" secondItem="eI4-7r-0GM" secondAttribute="leading" id="3h0-Xj-0VU"/>
-                                            <constraint firstItem="dkk-b1-Bds" firstAttribute="top" secondItem="eI4-7r-0GM" secondAttribute="top" constant="10" id="B7t-Vz-JN5"/>
-                                            <constraint firstAttribute="bottom" secondItem="FhQ-PD-ETl" secondAttribute="bottom" id="Bm7-6a-1IF"/>
-                                            <constraint firstAttribute="trailing" secondItem="dkk-b1-Bds" secondAttribute="trailing" id="Gra-gB-brG"/>
-                                            <constraint firstItem="dkk-b1-Bds" firstAttribute="leading" secondItem="eI4-7r-0GM" secondAttribute="leading" id="XFk-It-UIR"/>
+                                            <constraint firstAttribute="trailing" secondItem="FhQ-PD-ETl" secondAttribute="trailing" constant="1" id="1QQ-jc-ash"/>
+                                            <constraint firstItem="FhQ-PD-ETl" firstAttribute="leading" secondItem="eI4-7r-0GM" secondAttribute="leading" constant="1" id="3h0-Xj-0VU"/>
+                                            <constraint firstAttribute="bottom" secondItem="dkk-b1-Bds" secondAttribute="bottom" constant="1" id="59a-5M-kNx"/>
+                                            <constraint firstItem="dkk-b1-Bds" firstAttribute="top" secondItem="eI4-7r-0GM" secondAttribute="top" constant="1" id="B7t-Vz-JN5"/>
+                                            <constraint firstAttribute="bottom" secondItem="FhQ-PD-ETl" secondAttribute="bottom" constant="1" id="Bm7-6a-1IF"/>
+                                            <constraint firstAttribute="trailing" secondItem="dkk-b1-Bds" secondAttribute="trailing" constant="1" id="Gra-gB-brG"/>
+                                            <constraint firstItem="dkk-b1-Bds" firstAttribute="leading" secondItem="eI4-7r-0GM" secondAttribute="leading" constant="1" id="XFk-It-UIR"/>
+                                            <constraint firstItem="FhQ-PD-ETl" firstAttribute="top" secondItem="dkk-b1-Bds" secondAttribute="bottom" id="hgE-Sq-nyG"/>
                                             <constraint firstItem="FhQ-PD-ETl" firstAttribute="top" secondItem="dkk-b1-Bds" secondAttribute="bottom" id="vqt-1W-5BM"/>
                                         </constraints>
                                         <size key="customSize" width="100" height="100"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="hgE-Sq-nyG"/>
+                                                <exclude reference="vqt-1W-5BM"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="mainImage" destination="dkk-b1-Bds" id="uQi-BE-1je"/>
+                                            <outlet property="storyTitle" destination="FhQ-PD-ETl" id="Fgd-8y-gFD"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -190,11 +209,13 @@
                         <constraints>
                             <constraint firstItem="Cev-mW-Yik" firstAttribute="top" secondItem="9nn-y3-gC6" secondAttribute="bottom" id="0jU-yX-6PI"/>
                             <constraint firstItem="9nn-y3-gC6" firstAttribute="top" secondItem="euS-Hd-TmF" secondAttribute="bottom" id="28r-3k-oL3"/>
+                            <constraint firstItem="Cev-mW-Yik" firstAttribute="top" secondItem="9nn-y3-gC6" secondAttribute="bottom" id="5gl-NW-UJ5"/>
                             <constraint firstItem="9nn-y3-gC6" firstAttribute="leading" secondItem="Lzm-mw-wyL" secondAttribute="leadingMargin" id="8Et-io-lOh"/>
                             <constraint firstAttribute="trailing" secondItem="9nn-y3-gC6" secondAttribute="trailing" id="Crq-JT-nU7"/>
-                            <constraint firstAttribute="trailing" secondItem="9nn-y3-gC6" secondAttribute="trailing" id="HBV-Hl-8ka"/>
+                            <constraint firstAttribute="trailing" secondItem="9nn-y3-gC6" secondAttribute="trailing" constant="1" id="HBV-Hl-8ka"/>
                             <constraint firstItem="9nn-y3-gC6" firstAttribute="top" secondItem="euS-Hd-TmF" secondAttribute="bottom" id="TdA-uM-YDh"/>
-                            <constraint firstItem="9nn-y3-gC6" firstAttribute="leading" secondItem="Lzm-mw-wyL" secondAttribute="leading" id="Wie-g3-XEA"/>
+                            <constraint firstItem="9nn-y3-gC6" firstAttribute="leading" secondItem="Lzm-mw-wyL" secondAttribute="leading" constant="1" id="Wie-g3-XEA"/>
+                            <constraint firstItem="9nn-y3-gC6" firstAttribute="top" secondItem="euS-Hd-TmF" secondAttribute="bottom" id="gOb-mS-bYY"/>
                             <constraint firstItem="9nn-y3-gC6" firstAttribute="top" secondItem="euS-Hd-TmF" secondAttribute="bottom" id="ipr-It-I6U"/>
                             <constraint firstItem="Cev-mW-Yik" firstAttribute="top" secondItem="9nn-y3-gC6" secondAttribute="bottom" id="j5M-6I-JL4"/>
                             <constraint firstItem="Cev-mW-Yik" firstAttribute="top" secondItem="9nn-y3-gC6" secondAttribute="bottom" id="oxH-jT-hS0"/>
@@ -206,9 +227,11 @@
                                 <exclude reference="28r-3k-oL3"/>
                                 <exclude reference="8Et-io-lOh"/>
                                 <exclude reference="Crq-JT-nU7"/>
+                                <exclude reference="TdA-uM-YDh"/>
                                 <exclude reference="ipr-It-I6U"/>
                                 <exclude reference="r7r-XW-Lsu"/>
                                 <exclude reference="tpm-AB-xwQ"/>
+                                <exclude reference="5gl-NW-UJ5"/>
                                 <exclude reference="j5M-6I-JL4"/>
                                 <exclude reference="oxH-jT-hS0"/>
                             </mask>
