@@ -17,4 +17,6 @@ target :Trails do
 
     pod 'SwiftDate', git: 'https://github.com/malcommac/SwiftDate.git', branch: 'swift-2.0'
     pod 'HanekeSwift', git: 'https://github.com/meteochu/HanekeSwift.git', branch: 'swift-2.0'
+	
+	pod 'RAMCollectionViewFlemishBondLayout', '~> 1.1.1'
 end

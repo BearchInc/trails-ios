@@ -24,7 +24,9 @@
 		289CC8D01BAB5319001E62C5 /* TrailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289CC8CF1BAB5319001E62C5 /* TrailDataSource.swift */; settings = {ASSET_TAGS = (); }; };
 		28CBDAD91BA89E1C00219CC8 /* TrailDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBDAD81BA89E1C00219CC8 /* TrailDateTransform.swift */; settings = {ASSET_TAGS = (); }; };
 		401E4A69C82BC2024ACBCB64 /* Pods_Trails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		960B5CFB1BB08E7300A9D7DE /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960B5CFA1BB08E7300A9D7DE /* StoriesViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		966C0B8D1BACA11C00C29485 /* TutorialDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966C0B8C1BACA11C00C29485 /* TutorialDataSource.swift */; settings = {ASSET_TAGS = (); }; };
+		96D63F3F1BB1C13A002B6194 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D63F3E1BB1C13A002B6194 /* StoryCell.swift */; settings = {ASSET_TAGS = (); }; };
 		C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A49199C2A83B86B50FFB98 /* Account.swift */; };
 		C0A49A4A03F86C2427F44508 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A493E480EAD96391520E39 /* IPAddress.swift */; };
 		C0A49BD7A3C9CAD82FED24E3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A49A5C0DCDA50B171019AD /* Config.swift */; };
@@ -65,7 +67,9 @@
 		28CBDAD81BA89E1C00219CC8 /* TrailDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailDateTransform.swift; sourceTree = "<group>"; };
 		28EDEA4F1B9A13AA000BFFA7 /* Trails-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trails-Bridging-Header.h"; sourceTree = "<group>"; };
 		762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		960B5CFA1BB08E7300A9D7DE /* StoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
 		966C0B8C1BACA11C00C29485 /* TutorialDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialDataSource.swift; sourceTree = "<group>"; };
+		96D63F3E1BB1C13A002B6194 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
 		979B2078E3859F740B3CA27D /* Pods-Trails.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.staging.xcconfig"; sourceTree = "<group>"; };
 		B483CCEBD082EDB20144BF43 /* Pods-Trails.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.release.xcconfig"; sourceTree = "<group>"; };
 		C0A49199C2A83B86B50FFB98 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			children = (
 				28378AD71B8D21FB00AC342A /* HomeViewController.swift */,
 				28378AB51B8D0CB000AC342A /* StartupViewController.swift */,
+				960B5CFA1BB08E7300A9D7DE /* StoriesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				289CC8CC1BAA140A001E62C5 /* CardView.swift */,
 				283835FD1B9F896E00D89FA6 /* CustomOverlayView.swift */,
 				283835F41B9F5FE300D89FA6 /* TrailView.swift */,
+				96D63F3E1BB1C13A002B6194 /* StoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				281C9E531B90EECF00233380 /* ApiClient.swift in Sources */,
 				283835F51B9F5FE300D89FA6 /* TrailView.swift in Sources */,
 				28378AB61B8D0CB000AC342A /* StartupViewController.swift in Sources */,
+				96D63F3F1BB1C13A002B6194 /* StoryCell.swift in Sources */,
 				28378AB41B8D0CB000AC342A /* AppDelegate.swift in Sources */,
 				283835F81B9F6C0500D89FA6 /* Trail.swift in Sources */,
 				283835FA1B9F795500D89FA6 /* LocationTransform.swift in Sources */,
@@ -418,6 +425,7 @@
 				28CBDAD91BA89E1C00219CC8 /* TrailDateTransform.swift in Sources */,
 				C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */,
 				C0A49BD7A3C9CAD82FED24E3 /* Config.swift in Sources */,
+				960B5CFB1BB08E7300A9D7DE /* StoriesViewController.swift in Sources */,
 				C0A49A4A03F86C2427F44508 /* IPAddress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

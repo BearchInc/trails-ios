@@ -101,6 +101,9 @@ class HomeViewController: UIViewController {
 		}
 	}
 	
+	@IBAction func storiesTouched(sender: AnyObject) {
+	}
+	
 	@IBAction func leftButtonTapped() {
 		kolodaView?.swipe(SwipeResultDirection.Left)
 	}
