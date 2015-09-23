@@ -1,8 +1,6 @@
 import Foundation
 import UIKit
-import SwiftyDropbox
 import SwiftDate
-import Haneke
 
 class CardView: UIView {
     
@@ -41,6 +39,4 @@ class CardView: UIView {
         dateLabel.text = trail.createdAt.toRelativeString(abbreviated: false, maxUnits: 1).uppercaseString.stringByReplacingOccurrencesOfString("ABOUT", withString: "")
         imageView.image = image
     }
-	
-	
 }
