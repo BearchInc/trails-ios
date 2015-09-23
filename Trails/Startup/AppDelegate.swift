@@ -15,19 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        
-        if let authResult = Dropbox.handleRedirectURL(url) {
-            switch authResult {
-            case .Success(let token):
-                print("Success! Access token is: \(token)")
-            case .Error(let error, let description):
-                print("Error: \(error) and Desc: \(description)")
-            }
-        }
-        
+        openedAppFromUrl(url)
         return false
     }
 
+	func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+		openedAppFromUrl(url)
+		return false
+	}
+	
+	private func openedAppFromUrl(url: NSURL) {
+		if let authResult = Dropbox.handleRedirectURL(url) {
+			switch authResult {
+			case .Success(let token):
+				print("Success! Access token is: \(token)")
+			case .Error(let error, let description):
+				print("Error: \(error) and Desc: \(description)")
+			}
+		}
+
+	}
 
 }
 

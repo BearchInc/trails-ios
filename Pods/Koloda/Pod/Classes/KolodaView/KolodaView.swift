@@ -74,6 +74,7 @@ public class KolodaView: UIView, DraggableCardDelegate {
 
     public weak var dataSource: KolodaViewDataSource! {
         didSet {
+			currentCardNumber = 0
             setupDeck()
         }
     }
