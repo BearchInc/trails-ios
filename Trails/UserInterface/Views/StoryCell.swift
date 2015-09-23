@@ -19,8 +19,6 @@ class StoryCell: UICollectionViewCell {
 	
 	private func addBorder() {
 		let borderWidth: CGFloat = 1.0
-		
-//		self.frame = CGRectInset(self.frame, -borderWidth, -borderWidth);
 		self.layer.borderColor = UIColor.whiteColor().CGColor
 		self.layer.borderWidth = borderWidth
 	}
@@ -36,12 +34,16 @@ class StoryCell: UICollectionViewCell {
 	}
 	
 	private func renderStory(image: UIImage) {
-//		activityIndicator.stopAnimating()
-		mainImage.image = image
+		UIView.transitionWithView(mainImage,
+			duration: 1,
+			options: UIViewAnimationOptions.TransitionCrossDissolve,
+			animations: { () -> Void in
+				self.mainImage.image = image
+			}, completion: nil)
 	}
 	
 	private func fetchThumbnail(path: String, completionHandler: (UIImage -> Void)) {
-		Dropbox.authorizedClient?.filesGetThumbnail(path: path, size: Files.ThumbnailSize.W1024h768).response { response, error in
+		Dropbox.authorizedClient?.filesGetThumbnail(path: path, size: Files.ThumbnailSize.W640h480).response { response, error in
 			if let (_, data) = response {
 				let image = UIImage(data: data)!
 				Shared.imageCache.set(value: image, key: self.story.imagePath)
