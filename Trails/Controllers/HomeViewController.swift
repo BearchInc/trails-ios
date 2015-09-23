@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
 	
 	private func setupTrailDataSource() {
 		kolodaView.dataSource = trailDataSource
+		kolodaView.resetCurrentCardNumber()
 		fetchNextEvaluation()
 	}
 	
@@ -101,6 +102,9 @@ class HomeViewController: UIViewController {
 		}
 	}
 	
+	@IBAction func storiesTouched(sender: AnyObject) {
+	}
+	
 	@IBAction func leftButtonTapped() {
 		kolodaView?.swipe(SwipeResultDirection.Left)
 	}
@@ -119,14 +123,6 @@ class HomeViewController: UIViewController {
 			verifyDropboxAuthorization()
 		} else {
 			Dropbox.authorizeFromController(self)
-		}
-	}
-	
-	@IBAction func linkButtonPressed(sender: AnyObject) {
-		if Dropbox.authorizedClient == nil {
-			Dropbox.authorizeFromController(self)
-		} else {
-			print("User is already authorized!")
 		}
 	}
 }

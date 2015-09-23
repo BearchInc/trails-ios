@@ -8,6 +8,8 @@ swift_define =<<-EOF
 let SERVER_IP = "#{ip_address}"
 EOF
 
-File.open(path, 'a+') do |f|
+`touch #{path}` if File.exist?(path)
+
+File.open(path, 'w') do |f|
 	f.write swift_define
 end

@@ -1,0 +1,6 @@
+framework module RAMCollectionViewFlemishBondLayout {
+  umbrella header "RAMCollectionViewFlemishBondLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}
