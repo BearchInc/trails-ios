@@ -5,29 +5,21 @@ import SwiftyDropbox
 
 class ImageProvider {
 	
-	var successCallback: ((UIImage, String) -> Void)!
-	var failureCallback: (NSError -> Void)!
+	var successCallback: ((UIImage, String) -> Void)
+	var failureCallback: (NSError -> Void)?
 	
 	var imagePath: String
 	
-	init(imagePath: String) {
+	init(imagePath: String, successCallback: ((UIImage, String) -> Void), failureCallback: (NSError -> Void)?) {
 		self.imagePath = imagePath
+		self.successCallback = successCallback
+		self.failureCallback = failureCallback
 	}
 	
 	func fetchImage() -> Self {
 		Shared.imageCache.fetch(key: imagePath)
 			.onSuccess (fechSuccess)
 			.onFailure (handleCacheMiss)
-		return self
-	}
-	
-	func onSuccess(success: ((UIImage, String) -> Void)) -> Self {
-		self.successCallback = success
-		return self
-	}
-	
-	func onFailure(failure: (NSError -> Void)) -> Self {
-		self.failureCallback = failure
 		return self
 	}
 	
@@ -47,7 +39,7 @@ class ImageProvider {
 				Shared.imageCache.set(value: image, key: self.imagePath)
 				completionHandler(image)
 			} else {
-				self.failureCallback(NSError(domain: error!.description, code: 0, userInfo: nil))
+				self.failureCallback?(NSError(domain: error!.description, code: 0, userInfo: nil))
 			}
 		}
 	}

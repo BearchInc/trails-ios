@@ -14,10 +14,10 @@ class CardView: UIView {
     func render(trail: Trail) {
         self.trail = trail
         activityIndicator.startAnimating()
-		imageProvider = ImageProvider(imagePath: trail.mediaPath)
+		imageProvider = ImageProvider(imagePath: trail.mediaPath,
+			successCallback: imageFetched,
+			failureCallback: imageFetchFailed)
 		imageProvider.fetchImage()
-			.onSuccess(imageFetched)
-			.onFailure(imageFetchFailed)
     }
 	
 	func render(image: UIImage) {
