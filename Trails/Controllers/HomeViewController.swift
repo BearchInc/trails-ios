@@ -124,14 +124,6 @@ class HomeViewController: UIViewController {
 			Dropbox.authorizeFromController(self)
 		}
 	}
-	
-	@IBAction func linkButtonPressed(sender: AnyObject) {
-		if Dropbox.authorizedClient == nil {
-			Dropbox.authorizeFromController(self)
-		} else {
-			print("User is already authorized!")
-		}
-	}
 }
 
 extension HomeViewController: KolodaViewDelegate {
