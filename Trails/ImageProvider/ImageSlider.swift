@@ -6,15 +6,17 @@ class ImageSlider {
 	private let trails: [Trail]
 	private let displayImageCallback: (UIImage -> Void)
 	private let completionCallback: (Void -> Void)
+	private let displayPlaceHolderCallback: (Void -> Void)
 	
 	private var images = [UIImage]()
 	private var waitingForImage = 0
 	private var currentShowingImage = -1
 	private var imagesProvider: ImagesProvider!
 	
-	init(trails: [Trail]!, displayImageCallback: (UIImage -> Void), completionCallback: (Void -> Void)) {
+	init(trails: [Trail]!, displayImageCallback: (UIImage -> Void), displayPlaceHolderCallback: (Void -> Void), completionCallback: (Void -> Void)) {
 		self.trails = trails
 		self.displayImageCallback = displayImageCallback
+		self.displayPlaceHolderCallback = displayPlaceHolderCallback
 		self.completionCallback = completionCallback
 	}
 	
@@ -54,7 +56,7 @@ class ImageSlider {
 			displayImageCallback(images[currentShowingImage])
 		} else {
 			waitingForImage = currentShowingImage
-			displayImageCallback(UIImage(named: "overlay_skip")!)
+			displayPlaceHolderCallback()
 		}
 	}
 	
