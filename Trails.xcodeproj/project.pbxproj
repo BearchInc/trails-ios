@@ -28,7 +28,6 @@
 		964356B71BB2EBE200C21C9F /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964356B61BB2EBE200C21C9F /* StoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		966AD6FD1BB1C9FE005C4DD6 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966AD6FC1BB1C9FE005C4DD6 /* Story.swift */; settings = {ASSET_TAGS = (); }; };
 		966C0B8D1BACA11C00C29485 /* TutorialDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966C0B8C1BACA11C00C29485 /* TutorialDataSource.swift */; settings = {ASSET_TAGS = (); }; };
-		968262E91BB3030F0012FE14 /* TrailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968262E81BB3030F0012FE14 /* TrailCell.swift */; settings = {ASSET_TAGS = (); }; };
 		968262EB1BB306B10012FE14 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968262EA1BB306B10012FE14 /* ImageProvider.swift */; settings = {ASSET_TAGS = (); }; };
 		96D63F3F1BB1C13A002B6194 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D63F3E1BB1C13A002B6194 /* StoryCell.swift */; settings = {ASSET_TAGS = (); }; };
 		C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A49199C2A83B86B50FFB98 /* Account.swift */; };
@@ -75,7 +74,6 @@
 		964356B61BB2EBE200C21C9F /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		966AD6FC1BB1C9FE005C4DD6 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		966C0B8C1BACA11C00C29485 /* TutorialDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialDataSource.swift; sourceTree = "<group>"; };
-		968262E81BB3030F0012FE14 /* TrailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailCell.swift; sourceTree = "<group>"; };
 		968262EA1BB306B10012FE14 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		96D63F3E1BB1C13A002B6194 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
 		979B2078E3859F740B3CA27D /* Pods-Trails.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.staging.xcconfig"; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 				283835FD1B9F896E00D89FA6 /* CustomOverlayView.swift */,
 				283835F41B9F5FE300D89FA6 /* TrailView.swift */,
 				96D63F3E1BB1C13A002B6194 /* StoryCell.swift */,
-				968262E81BB3030F0012FE14 /* TrailCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -439,7 +436,6 @@
 			files = (
 				281C9E531B90EECF00233380 /* ApiClient.swift in Sources */,
 				283835F51B9F5FE300D89FA6 /* TrailView.swift in Sources */,
-				968262E91BB3030F0012FE14 /* TrailCell.swift in Sources */,
 				28378AB61B8D0CB000AC342A /* StartupViewController.swift in Sources */,
 				96D63F3F1BB1C13A002B6194 /* StoryCell.swift in Sources */,
 				964356B71BB2EBE200C21C9F /* StoryViewController.swift in Sources */,

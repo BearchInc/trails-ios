@@ -16,6 +16,11 @@ class StoriesViewController: UIViewController, UICollectionViewDataSource, UICol
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		Story.fetchStories { (stories: [Story]?, errorType: ErrorType?) -> Void in
+			
+			guard errorType == nil else {
+				return
+			}
+			
 			self.stories += stories!
 			self.collectionView.reloadData()
 		}
@@ -34,5 +39,7 @@ class StoriesViewController: UIViewController, UICollectionViewDataSource, UICol
 	func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: RAMCollectionViewFlemishBondLayout!, highlightedCellDirectionForGroup group: Int, atIndexPath indexPath: NSIndexPath!) -> RAMCollectionViewFlemishBondLayoutGroupDirection {
 		return indexPath.row % 2 == 0 ? .Left : .Right
 	}
+	
+	
 	
 }
