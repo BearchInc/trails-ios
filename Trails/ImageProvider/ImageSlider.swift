@@ -10,6 +10,7 @@ class ImageSlider {
 	private var images = [UIImage]()
 	private var waitingForImage = 0
 	private var currentShowingImage = -1
+	private var imagesProvider: ImagesProvider!
 	
 	init(trails: [Trail]!, displayImageCallback: (UIImage -> Void), completionCallback: (Void -> Void)) {
 		self.trails = trails
@@ -19,7 +20,7 @@ class ImageSlider {
 	
 	func start() {
 		let trailsUrls = self.trails.map(trailsToUrls)
-		let imagesProvider = ImagesProvider(imagePaths: trailsUrls, imageDownloadedCallback: imageDownloadedCallback)
+		imagesProvider = ImagesProvider(imagePaths: trailsUrls, imageDownloadedCallback: imageDownloadedCallback)
 		imagesProvider.provide()
 	}
 	
@@ -38,6 +39,10 @@ class ImageSlider {
 	}
 	
 	func next() {
+		if !isCurrentImageLoaded() {
+			imagesProvider.provide()
+		}
+		
 		currentShowingImage++
 		
 		if isFinished() {
