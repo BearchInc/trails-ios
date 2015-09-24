@@ -24,6 +24,10 @@ class Story: Mappable {
 		selfPath <- map["self_path"]
 	}
 	
+	func fetchTrails(completionHandler: ([Trail]?, ErrorType?) -> Void) {
+		ApiClient.request(.GET, path: selfPath, params: nil).responseArray(completionHandler)
+	}
+	
 	class func fetchStories(completionHandler: ([Story]?, ErrorType?) -> Void) {
 		ApiClient.request(.GET, path: .Stories, params: nil).responseArray(completionHandler)
 	}

@@ -5,6 +5,8 @@ import RAMCollectionViewFlemishBondLayout
 class StoriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, RAMCollectionViewFlemishBondLayoutDelegate {
 	
 	var stories = [Story]()
+	
+	private var selectedStory: Story?
 
 	@IBOutlet weak var collectionView: UICollectionView! {
 		didSet {
@@ -40,6 +42,15 @@ class StoriesViewController: UIViewController, UICollectionViewDataSource, UICol
 		return indexPath.row % 2 == 0 ? .Left : .Right
 	}
 	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		selectedStory = stories[indexPath.row]
+		performSegue(Segue.ShowStorySegue)
+	}
 	
-	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue == Segue.ShowStorySegue {
+			let storyViewController = segue.destinationViewController as! StoryViewController
+			storyViewController.story = selectedStory
+		}
+	}
 }

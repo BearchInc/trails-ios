@@ -239,17 +239,17 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="9nn-y3-gC6" id="GLC-Vs-duR"/>
-                        <segue destination="Lgn-jW-3AW" kind="showDetail" id="m8y-dJ-IFM"/>
+                        <segue destination="Lgn-jW-3AW" kind="showDetail" identifier="ShowStorySegue" id="m8y-dJ-IFM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yDH-je-0fZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2313" y="315"/>
         </scene>
-        <!--View Controller-->
+        <!--Story View Controller-->
         <scene sceneID="QwQ-Ye-d8L">
             <objects>
-                <viewController id="Lgn-jW-3AW" sceneMemberID="viewController">
+                <viewController id="Lgn-jW-3AW" customClass="StoryViewController" customModule="Trails" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jel-s5-6qB"/>
                         <viewControllerLayoutGuide type="bottom" id="jxv-VB-H7T"/>
@@ -257,8 +257,22 @@
                     <view key="view" contentMode="scaleToFill" id="UMa-eB-Ab9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WaA-ob-wJU">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WaA-ob-wJU" secondAttribute="trailing" id="Qyi-VC-ygd"/>
+                            <constraint firstItem="jxv-VB-H7T" firstAttribute="top" secondItem="WaA-ob-wJU" secondAttribute="bottom" id="Ux8-d8-T2L"/>
+                            <constraint firstItem="WaA-ob-wJU" firstAttribute="leading" secondItem="UMa-eB-Ab9" secondAttribute="leading" id="cpE-Bg-rjL"/>
+                            <constraint firstItem="WaA-ob-wJU" firstAttribute="top" secondItem="jel-s5-6qB" secondAttribute="bottom" id="v0O-91-gKn"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="image" destination="WaA-ob-wJU" id="iIb-pW-ydg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fh-qd-HIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

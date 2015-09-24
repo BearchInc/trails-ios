@@ -5,7 +5,11 @@ import Haneke
 class DropboxImageFetcher: ImageFetcherProtocol {
 	
 	private var imagePath: String
-	private var imageSize: Files.ThumbnailSize
+	private var imageSize = Files.ThumbnailSize.W1024h768
+	
+	init (imagePath: String) {
+		self.imagePath = imagePath
+	}
 	
 	init(imagePath: String, imageSize: Files.ThumbnailSize) {
 		self.imagePath = imagePath
