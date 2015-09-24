@@ -33,7 +33,6 @@ class ImagesProvider {
 	}
 	
 	private func failureCallback(error: NSError?) {
-		print("Failed to download image at index \(downloadedImageAtIndex)")
 		provide()
 	}
 }
