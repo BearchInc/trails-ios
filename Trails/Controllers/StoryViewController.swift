@@ -3,7 +3,7 @@ import UIKit
 
 class StoryViewController: UIViewController {
 
-	@IBOutlet weak var image: UIImageView!
+	@IBOutlet weak var trailImage: UIImageView!
 
 	var story: Story!
 
@@ -11,6 +11,8 @@ class StoryViewController: UIViewController {
 	private var trails: [Trail]!
 	private var imageProvider: ImageProvider!
 	private var images = [UIImage]()
+	private var currentShowingImage = -1
+	private var waitingForImage = 0
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -32,10 +34,10 @@ class StoryViewController: UIViewController {
 		print("Downloaded image at index \(index)")
 		images.append(image)
 
-		UIView.transitionWithView(self.image, duration: 0.5, options: .Autoreverse, animations: { () -> Void in
-				self.image.image = image
-		}, completion: nil)
-		
+		if index == waitingForImage {
+			currentShowingImage++
+			trailImage.image = image
+		}
 	}
 	
 	private func trailsToUrls(trail: Trail) -> String {
@@ -43,12 +45,40 @@ class StoryViewController: UIViewController {
 	}
 	
 	private func successCallback(image: UIImage, path: String) {
-		self.image.image = image
+		trailImage.image = image
 	}
 	
 	private func failureCallback(error: NSError?) {
 		print(error)
 	}
 	
+	func showNextImage() {
+		currentShowingImage++
+
+		if currentShowingImage > images.count - 1 {
+			waitingForImage = currentShowingImage
+			trailImage.image = UIImage(named: "overlay_skip")
+		} else {
+			trailImage.image = images[currentShowingImage]
+		}
+	}
 	
+	private func finish() {
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	@IBAction func didTapTrailImage(sender: AnyObject) {
+		
+		if currentShowingImage == trails.count - 1 {
+			finish()
+			return
+		}
+		
+		showNextImage()
+	}
+	
+	@IBAction func didTapCloseButton(sender: AnyObject) {
+		finish()
+	}
+
 }
