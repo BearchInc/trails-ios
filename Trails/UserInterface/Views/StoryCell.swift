@@ -24,7 +24,14 @@ class StoryCell: UICollectionViewCell {
 	}
 
 	private func fetchAndRenderImage() {
-		let fetcher = WebImageFetcher(imagePath: story.imagePath)
+		var fetcher: ImageFetcherProtocol
+		
+		if story.authorizationType == AuthorizationType.Web {
+			fetcher = WebImageFetcher(imagePath: story.imagePath)
+		} else {
+			fetcher = DropboxImageFetcher(imagePath: story.imagePath, imageSize: Files.ThumbnailSize.W640h480)
+		}
+		
 		imageProvider = ImageProvider(fetcher: fetcher, successCallback: imageFetched, failureCallback: imageFetchFailed)
 		imageProvider.fetchImage()
 	}
