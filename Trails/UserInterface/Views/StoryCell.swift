@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import SwiftyDropbox
 
 class StoryCell: UICollectionViewCell {
 	
@@ -23,9 +24,8 @@ class StoryCell: UICollectionViewCell {
 	}
 
 	private func fetchAndRenderImage() {
-		imageProvider = ImageProvider(imagePath: story.imagePath,
-			successCallback: imageFetched,
-			failureCallback: imageFetchFailed)
+		let fetcher = WebImageFetcher(imagePath: story.imagePath)
+		imageProvider = ImageProvider(fetcher: fetcher, successCallback: imageFetched, failureCallback: imageFetchFailed)
 		imageProvider.fetchImage()
 	}
 	
@@ -36,8 +36,8 @@ class StoryCell: UICollectionViewCell {
 		renderStory(image)
 	}
 	
-	private func imageFetchFailed(error: NSError) {
-		print("failed to donwload trail image \(error.description)")
+	private func imageFetchFailed(error: NSError?) {
+		print("failed to donwload trail image \(error?.description)")
 	}
 	
 	private func renderStory(image: UIImage) {

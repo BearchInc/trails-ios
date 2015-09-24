@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import SwiftDate
+import SwiftyDropbox
 
 class CardView: UIView {
     
@@ -14,9 +15,8 @@ class CardView: UIView {
     func render(trail: Trail) {
         self.trail = trail
         activityIndicator.startAnimating()
-		imageProvider = ImageProvider(imagePath: trail.mediaPath,
-			successCallback: imageFetched,
-			failureCallback: imageFetchFailed)
+		let fetcher = DropboxImageFetcher(imagePath: trail.mediaPath, imageSize: Files.ThumbnailSize.W1024h768)
+		imageProvider = ImageProvider(fetcher: fetcher, successCallback: imageFetched, failureCallback: imageFetchFailed)
 		imageProvider.fetchImage()
     }
 	
@@ -29,8 +29,8 @@ class CardView: UIView {
 		renderTrail(image)
 	}
 	
-	private func imageFetchFailed(error: NSError) {
-		print("failed to donwload trail image \(error.description)")
+	private func imageFetchFailed(error: NSError?) {
+		print("failed to donwload trail image \(error?.description)")
 	}
     
     private func renderTrail(image: UIImage) {

@@ -5,44 +5,28 @@ import SwiftyDropbox
 
 class ImageProvider {
 	
-	var successCallback: ((UIImage, String) -> Void)
-	var failureCallback: (NSError -> Void)?
-	var imagePath: String
+	private var successCallback: ((UIImage, String) -> Void)
+	private var failureCallback: (NSError? -> Void)?
+	private var fetcher: ImageFetcherProtocol
 	
-	init(imagePath: String, successCallback: ((UIImage, String) -> Void), failureCallback: (NSError -> Void)?) {
-		self.imagePath = imagePath
+	init(fetcher: ImageFetcherProtocol, successCallback: ((UIImage, String) -> Void), failureCallback: (NSError? -> Void)?) {
+		self.fetcher = fetcher
 		self.successCallback = successCallback
 		self.failureCallback = failureCallback
 	}
 	
 	func fetchImage() -> Self {
-		Shared.imageCache.fetch(key: imagePath)
+		Shared.imageCache.fetch(key: fetcher.getImagePath())
 			.onSuccess (fechSuccess)
 			.onFailure (handleCacheMiss)
 		return self
 	}
 	
 	private func handleCacheMiss(error: NSError?) {
-		DropboxImageFetcher().fetch(imagePath, successCallback: successCallback, failureCallback: failureCallback)
+		fetcher.fetch(successCallback, failureCallback: failureCallback)
 	}
 	
 	private func fechSuccess(image: UIImage) {
-		self.successCallback(image, imagePath)
-	}
-	
-}
-
-class DropboxImageFetcher {
-	func fetch(path: String, successCallback: ((UIImage, String) -> Void), failureCallback: (NSError -> Void)?) {
-		Dropbox.authorizedClient?.filesGetThumbnail(path: path, size: Files.ThumbnailSize.W1024h768).response { response, error in
-			if let (_, data) = response {
-				let image = UIImage(data: data)!
-				
-				Shared.imageCache.set(value: image, key: path)
-				successCallback(image, path)
-			} else {
-				failureCallback?(NSError(domain: error!.description, code: 0, userInfo: nil))
-			}
-		}
+		successCallback(image, fetcher.getImagePath())
 	}
 }
