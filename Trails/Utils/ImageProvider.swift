@@ -7,7 +7,6 @@ class ImageProvider {
 	
 	var successCallback: ((UIImage, String) -> Void)
 	var failureCallback: (NSError -> Void)?
-	
 	var imagePath: String
 	
 	init(imagePath: String, successCallback: ((UIImage, String) -> Void), failureCallback: (NSError -> Void)?) {
@@ -24,22 +23,25 @@ class ImageProvider {
 	}
 	
 	private func handleCacheMiss(error: NSError?) {
-		fetchFromDropbox(imagePath)
+		DropboxImageFetcher().fetch(imagePath, successCallback: successCallback, failureCallback: failureCallback)
 	}
 	
 	private func fechSuccess(image: UIImage) {
 		self.successCallback(image, imagePath)
 	}
 	
-	private func fetchFromDropbox(path: String) {
+}
+
+class DropboxImageFetcher {
+	func fetch(path: String, successCallback: ((UIImage, String) -> Void), failureCallback: (NSError -> Void)?) {
 		Dropbox.authorizedClient?.filesGetThumbnail(path: path, size: Files.ThumbnailSize.W1024h768).response { response, error in
 			if let (_, data) = response {
 				let image = UIImage(data: data)!
 				
-				Shared.imageCache.set(value: image, key: self.imagePath)
-				self.successCallback(image, path)
+				Shared.imageCache.set(value: image, key: path)
+				successCallback(image, path)
 			} else {
-				self.failureCallback?(NSError(domain: error!.description, code: 0, userInfo: nil))
+				failureCallback?(NSError(domain: error!.description, code: 0, userInfo: nil))
 			}
 		}
 	}
