@@ -25,9 +25,17 @@
 		28CBDAD91BA89E1C00219CC8 /* TrailDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CBDAD81BA89E1C00219CC8 /* TrailDateTransform.swift */; settings = {ASSET_TAGS = (); }; };
 		401E4A69C82BC2024ACBCB64 /* Pods_Trails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		960B5CFB1BB08E7300A9D7DE /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960B5CFA1BB08E7300A9D7DE /* StoriesViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		964356B71BB2EBE200C21C9F /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964356B61BB2EBE200C21C9F /* StoryViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		966AD6FD1BB1C9FE005C4DD6 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966AD6FC1BB1C9FE005C4DD6 /* Story.swift */; settings = {ASSET_TAGS = (); }; };
 		966C0B8D1BACA11C00C29485 /* TutorialDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966C0B8C1BACA11C00C29485 /* TutorialDataSource.swift */; settings = {ASSET_TAGS = (); }; };
+		968262EB1BB306B10012FE14 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968262EA1BB306B10012FE14 /* ImageProvider.swift */; settings = {ASSET_TAGS = (); }; };
+		9688DE731BB46CEC008B09BA /* ImagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9688DE721BB46CEC008B09BA /* ImagesProvider.swift */; settings = {ASSET_TAGS = (); }; };
+		9688DE751BB48860008B09BA /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9688DE741BB48860008B09BA /* ImageSlider.swift */; settings = {ASSET_TAGS = (); }; };
 		96D63F3F1BB1C13A002B6194 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D63F3E1BB1C13A002B6194 /* StoryCell.swift */; settings = {ASSET_TAGS = (); }; };
+		96F276A01BB43B6F001EE062 /* DropboxImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2769F1BB43B6F001EE062 /* DropboxImageFetcher.swift */; settings = {ASSET_TAGS = (); }; };
+		96F276A21BB43DDC001EE062 /* WebImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F276A11BB43DDC001EE062 /* WebImageFetcher.swift */; settings = {ASSET_TAGS = (); }; };
+		96F276A41BB43DF3001EE062 /* ImageFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F276A31BB43DF3001EE062 /* ImageFetcherProtocol.swift */; settings = {ASSET_TAGS = (); }; };
+		96F276A71BB4443E001EE062 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F276A61BB4443E001EE062 /* Storyboards.swift */; settings = {ASSET_TAGS = (); }; };
 		C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A49199C2A83B86B50FFB98 /* Account.swift */; };
 		C0A49A4A03F86C2427F44508 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A493E480EAD96391520E39 /* IPAddress.swift */; };
 		C0A49BD7A3C9CAD82FED24E3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A49A5C0DCDA50B171019AD /* Config.swift */; };
@@ -69,9 +77,17 @@
 		28EDEA4F1B9A13AA000BFFA7 /* Trails-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trails-Bridging-Header.h"; sourceTree = "<group>"; };
 		762EFFBA3F7C9AE4412EF91B /* Pods_Trails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		960B5CFA1BB08E7300A9D7DE /* StoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
+		964356B61BB2EBE200C21C9F /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		966AD6FC1BB1C9FE005C4DD6 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		966C0B8C1BACA11C00C29485 /* TutorialDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialDataSource.swift; sourceTree = "<group>"; };
+		968262EA1BB306B10012FE14 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		9688DE721BB46CEC008B09BA /* ImagesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesProvider.swift; sourceTree = "<group>"; };
+		9688DE741BB48860008B09BA /* ImageSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		96D63F3E1BB1C13A002B6194 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
+		96F2769F1BB43B6F001EE062 /* DropboxImageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropboxImageFetcher.swift; sourceTree = "<group>"; };
+		96F276A11BB43DDC001EE062 /* WebImageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebImageFetcher.swift; sourceTree = "<group>"; };
+		96F276A31BB43DF3001EE062 /* ImageFetcherProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFetcherProtocol.swift; sourceTree = "<group>"; };
+		96F276A61BB4443E001EE062 /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		979B2078E3859F740B3CA27D /* Pods-Trails.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.staging.xcconfig"; sourceTree = "<group>"; };
 		B483CCEBD082EDB20144BF43 /* Pods-Trails.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trails.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trails/Pods-Trails.release.xcconfig"; sourceTree = "<group>"; };
 		C0A49199C2A83B86B50FFB98 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -124,8 +140,10 @@
 			children = (
 				28378AD61B8D21B800AC342A /* Controllers */,
 				289CC8CE1BAB52F7001E62C5 /* DataSources */,
+				9688DE711BB46AEB008B09BA /* ImageProvider */,
 				C0A495D6924EF1F5514B26D2 /* Models */,
 				284B4D301B9095EF009AAE92 /* Startup */,
+				96F276A61BB4443E001EE062 /* Storyboards.swift */,
 				28378AB11B8D0CB000AC342A /* Supporting Files */,
 				284B4D2F1B9095C5009AAE92 /* UserInterface */,
 				28CBDAD71BA89DFF00219CC8 /* Utils */,
@@ -166,6 +184,7 @@
 				28378AD71B8D21FB00AC342A /* HomeViewController.swift */,
 				28378AB51B8D0CB000AC342A /* StartupViewController.swift */,
 				960B5CFA1BB08E7300A9D7DE /* StoriesViewController.swift */,
+				964356B61BB2EBE200C21C9F /* StoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -175,8 +194,8 @@
 			children = (
 				289CC8CC1BAA140A001E62C5 /* CardView.swift */,
 				283835FD1B9F896E00D89FA6 /* CustomOverlayView.swift */,
-				283835F41B9F5FE300D89FA6 /* TrailView.swift */,
 				96D63F3E1BB1C13A002B6194 /* StoryCell.swift */,
+				283835F41B9F5FE300D89FA6 /* TrailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +252,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9688DE711BB46AEB008B09BA /* ImageProvider */ = {
+			isa = PBXGroup;
+			children = (
+				96F2769F1BB43B6F001EE062 /* DropboxImageFetcher.swift */,
+				96F276A31BB43DF3001EE062 /* ImageFetcherProtocol.swift */,
+				968262EA1BB306B10012FE14 /* ImageProvider.swift */,
+				9688DE721BB46CEC008B09BA /* ImagesProvider.swift */,
+				96F276A11BB43DDC001EE062 /* WebImageFetcher.swift */,
+				9688DE741BB48860008B09BA /* ImageSlider.swift */,
+			);
+			path = ImageProvider;
+			sourceTree = "<group>";
+		};
 		B02F856C2D5A18EBC2BF5FA4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,8 +285,8 @@
 				C0A49A5C0DCDA50B171019AD /* Config.swift */,
 				C0A493E480EAD96391520E39 /* IPAddress.swift */,
 				283835F91B9F795500D89FA6 /* LocationTransform.swift */,
-				283835F71B9F6C0500D89FA6 /* Trail.swift */,
 				966AD6FC1BB1C9FE005C4DD6 /* Story.swift */,
+				283835F71B9F6C0500D89FA6 /* Trail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,6 +298,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28378ACD1B8D0CB000AC342A /* Build configuration list for PBXNativeTarget "Trails" */;
 			buildPhases = (
+				96F276A51BB443E2001EE062 /* Run Script - Natalie */,
 				966AD6FE1BB1E92C005C4DD6 /* Run Script - Ip Address */,
 				B0E9323726649C4AF7E69D04 /* Check Pods Manifest.lock */,
 				28378AAA1B8D0CB000AC342A /* Sources */,
@@ -406,6 +439,20 @@
 			shellPath = /bin/sh;
 			shellScript = "ruby ip_address.rb\n";
 		};
+		96F276A51BB443E2001EE062 /* Run Script - Natalie */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script - Natalie";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Natalie Generator: Determining if generated Swift file is up-to-date.\"\n\nNATALIE_PATH=\"/usr/local/bin/natalie.swift\"\n\nif [ -f $NATALIE_PATH ]; then\nBASE_PATH=\"$PROJECT_DIR/$PROJECT_NAME\"\nOUTPUT_PATH=\"$BASE_PATH/Storyboards.swift\"\n\nif [ ! -e \"$OUTPUT_PATH\" ] || [ -n \"$(find \"$BASE_PATH\" -type f -name \"*.storyboard\" -newer \"$OUTPUT_PATH\" -print -quit)\" ]; then\necho \"Natalie Generator: Generated Swift is out-of-date; re-generating...\"\n\n/usr/bin/chflags nouchg \"$OUTPUT_PATH\"\n\"$NATALIE_PATH\" \"$BASE_PATH\" > \"$OUTPUT_PATH\"\n/usr/bin/chflags uchg \"$OUTPUT_PATH\"\n\necho \"Natalie Generator: Done.\"\nelse\necho \"Natalie Generator: Generated Swift is up-to-date; skipping re-generation.\"\nfi\nfi";
+		};
 		B0E9323726649C4AF7E69D04 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,24 +475,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96F276A71BB4443E001EE062 /* Storyboards.swift in Sources */,
+				9688DE731BB46CEC008B09BA /* ImagesProvider.swift in Sources */,
 				281C9E531B90EECF00233380 /* ApiClient.swift in Sources */,
 				283835F51B9F5FE300D89FA6 /* TrailView.swift in Sources */,
 				28378AB61B8D0CB000AC342A /* StartupViewController.swift in Sources */,
 				96D63F3F1BB1C13A002B6194 /* StoryCell.swift in Sources */,
+				964356B71BB2EBE200C21C9F /* StoryViewController.swift in Sources */,
 				28378AB41B8D0CB000AC342A /* AppDelegate.swift in Sources */,
 				283835F81B9F6C0500D89FA6 /* Trail.swift in Sources */,
 				283835FA1B9F795500D89FA6 /* LocationTransform.swift in Sources */,
+				96F276A21BB43DDC001EE062 /* WebImageFetcher.swift in Sources */,
 				966C0B8D1BACA11C00C29485 /* TutorialDataSource.swift in Sources */,
 				28378AD81B8D21FB00AC342A /* HomeViewController.swift in Sources */,
 				289CC8CD1BAA140A001E62C5 /* CardView.swift in Sources */,
+				96F276A41BB43DF3001EE062 /* ImageFetcherProtocol.swift in Sources */,
 				283835FE1B9F896E00D89FA6 /* CustomOverlayView.swift in Sources */,
 				289CC8D01BAB5319001E62C5 /* TrailDataSource.swift in Sources */,
 				28CBDAD91BA89E1C00219CC8 /* TrailDateTransform.swift in Sources */,
+				96F276A01BB43B6F001EE062 /* DropboxImageFetcher.swift in Sources */,
 				C0A4922B03CD2BF393C45B7E /* Account.swift in Sources */,
+				968262EB1BB306B10012FE14 /* ImageProvider.swift in Sources */,
 				C0A49BD7A3C9CAD82FED24E3 /* Config.swift in Sources */,
 				960B5CFB1BB08E7300A9D7DE /* StoriesViewController.swift in Sources */,
 				C0A49A4A03F86C2427F44508 /* IPAddress.swift in Sources */,
 				966AD6FD1BB1C9FE005C4DD6 /* Story.swift in Sources */,
+				9688DE751BB48860008B09BA /* ImageSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

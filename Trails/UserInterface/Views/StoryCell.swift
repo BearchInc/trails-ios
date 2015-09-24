@@ -1,14 +1,14 @@
 import Foundation
 import UIKit
 import SwiftyDropbox
-import Haneke
 
 class StoryCell: UICollectionViewCell {
 	
 	@IBOutlet weak var mainImage: UIImageView!
 	@IBOutlet weak var storyTitle: UILabel!
 	
-	var story: Story!
+	private var story: Story!
+	private var imageProvider: ImageProvider!
 	
 	func render(story: Story) {
 		self.story = story
@@ -24,13 +24,27 @@ class StoryCell: UICollectionViewCell {
 	}
 
 	private func fetchAndRenderImage() {
-		Shared.imageCache.fetch(key: story.imagePath)
-			.onSuccess (renderStory)
-			.onFailure (handleCacheMiss)
+		var fetcher: ImageFetcherProtocol
+		
+		if story.authorizationType == AuthorizationType.Web {
+			fetcher = WebImageFetcher(imagePath: story.imagePath)
+		} else {
+			fetcher = DropboxImageFetcher(imagePath: story.imagePath, imageSize: Files.ThumbnailSize.W640h480)
+		}
+		
+		imageProvider = ImageProvider(fetcher: fetcher, successCallback: imageFetched, failureCallback: imageFetchFailed)
+		imageProvider.fetchImage()
 	}
 	
-	private func handleCacheMiss(error: NSError?) {
-		fetchThumbnail(story.imagePath, completionHandler: renderStory)
+	private func imageFetched(image: UIImage, imagePath: String) {
+		guard story.imagePath == imagePath else {
+			return
+		}
+		renderStory(image)
+	}
+	
+	private func imageFetchFailed(error: NSError?) {
+		print("failed to donwload trail image \(error?.description)")
 	}
 	
 	private func renderStory(image: UIImage) {
@@ -42,16 +56,4 @@ class StoryCell: UICollectionViewCell {
 			}, completion: nil)
 	}
 	
-	private func fetchThumbnail(path: String, completionHandler: (UIImage -> Void)) {
-		Dropbox.authorizedClient?.filesGetThumbnail(path: path, size: Files.ThumbnailSize.W640h480).response { response, error in
-			if let (_, data) = response {
-				let image = UIImage(data: data)!
-				Shared.imageCache.set(value: image, key: self.story.imagePath)
-				completionHandler(image)
-			} else {
-				print(error!)
-			}
-		}
-	}
-
 }

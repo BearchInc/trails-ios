@@ -1,18 +1,31 @@
 import Foundation
 import ObjectMapper
 
+enum AuthorizationType {
+	case Web
+	case Dropbox
+}
+
 class Story: Mappable {
-	var imagePath: String!
 	var title: String!
-	var trails: [Trail]!
+	var imagePath: String!
+	var likenessCount: Int!
+	var authorizationType: AuthorizationType!
+	var selfPath: String!
 	
 	required init?(_ map: Map) {
 	}
 	
 	func mapping(map: Map) {
-		imagePath <- map["image_path"]
 		title <- map["title"]
-		trails <- map["trails"]
+		imagePath <- map["image_path"]
+		likenessCount <- map["likeness_count"]
+		authorizationType <- map["authorization_type"]
+		selfPath <- map["self_path"]
+	}
+	
+	func fetchTrails(completionHandler: ([Trail]?, ErrorType?) -> Void) {
+		ApiClient.request(.GET, path: selfPath, params: nil).responseArray(completionHandler)
 	}
 	
 	class func fetchStories(completionHandler: ([Story]?, ErrorType?) -> Void) {

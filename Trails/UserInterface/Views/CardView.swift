@@ -1,8 +1,7 @@
 import Foundation
 import UIKit
-import SwiftyDropbox
 import SwiftDate
-import Haneke
+import SwiftyDropbox
 
 class CardView: UIView {
     
@@ -11,45 +10,33 @@ class CardView: UIView {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var trail: Trail!
+	private var imageProvider: ImageProvider!
     
     func render(trail: Trail) {
         self.trail = trail
         activityIndicator.startAnimating()
-        fetchAndRenderImage()
+		let fetcher = DropboxImageFetcher(imagePath: trail.mediaPath, imageSize: Files.ThumbnailSize.W1024h768)
+		imageProvider = ImageProvider(fetcher: fetcher, successCallback: imageFetched, failureCallback: imageFetchFailed)
+		imageProvider.fetchImage()
     }
 	
 	func render(image: UIImage) {
 		activityIndicator.stopAnimating()
 		imageView.image = image
 	}
-    
-    private func fetchAndRenderImage() {
-        Shared.imageCache.fetch(key: trail.mediaPath)
-            .onSuccess (renderTrail)
-            .onFailure (handleCacheMiss)
-    }
-    
-    private func handleCacheMiss(error: NSError?) {
-        fetchThumbnail(trail.mediaPath, completionHandler: renderTrail)
-    }
+	
+	private func imageFetched(image: UIImage, mediaPath: String) {
+		renderTrail(image)
+	}
+	
+	private func imageFetchFailed(error: NSError?) {
+		print("failed to donwload trail image \(error?.description)")
+	}
     
     private func renderTrail(image: UIImage) {
         activityIndicator.stopAnimating()
         dateLabel.hidden = false
         dateLabel.text = trail.createdAt.toRelativeString(abbreviated: false, maxUnits: 1).uppercaseString.stringByReplacingOccurrencesOfString("ABOUT", withString: "")
         imageView.image = image
-    }
-    
-    private func fetchThumbnail(path: String, completionHandler: (UIImage -> Void)) {
-        Dropbox.authorizedClient?.filesGetThumbnail(path: path, size: Files.ThumbnailSize.W1024h768).response { response, error in
-            if let (_, data) = response {
-                let image = UIImage(data: data)!
-
-                Shared.imageCache.set(value: image, key: self.trail.mediaPath)
-                completionHandler(image)
-            } else {
-                print(error!)
-            }
-        }
     }
 }

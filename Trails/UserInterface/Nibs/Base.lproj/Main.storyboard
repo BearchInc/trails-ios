@@ -40,7 +40,7 @@
                                             <constraint firstAttribute="height" constant="34" id="1xo-xn-IGo"/>
                                             <constraint firstAttribute="width" constant="34" id="UtZ-Mh-3qg"/>
                                         </constraints>
-                                        <state key="normal" image="Undo"/>
+                                        <state key="normal" image="ic_revert"/>
                                         <connections>
                                             <action selector="undoButtonTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lr8-Oe-iSM"/>
                                         </connections>
@@ -239,11 +239,79 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="9nn-y3-gC6" id="GLC-Vs-duR"/>
+                        <segue destination="Lgn-jW-3AW" kind="showDetail" identifier="ShowStorySegue" id="m8y-dJ-IFM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yDH-je-0fZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2313" y="315"/>
+        </scene>
+        <!--Story View Controller-->
+        <scene sceneID="QwQ-Ye-d8L">
+            <objects>
+                <viewController id="Lgn-jW-3AW" customClass="StoryViewController" customModule="Trails" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jel-s5-6qB"/>
+                        <viewControllerLayoutGuide type="bottom" id="jxv-VB-H7T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UMa-eB-Ab9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="WaA-ob-wJU" userLabel="Trail Image">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" red="0.68627450980000004" green="0.80784313730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="YqP-hJ-RvJ" appends="YES" id="fC6-f2-Nkh"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3P-rY-2yD" userLabel="Close Button">
+                                <rect key="frame" x="20" y="28" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8bk-VO-3MS"/>
+                                    <constraint firstAttribute="width" constant="60" id="xgz-xH-stE"/>
+                                </constraints>
+                                <state key="normal" image="ic_skip"/>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="Lgn-jW-3AW" eventType="touchUpInside" id="j3W-nd-4tQ"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7fV-ov-L7O">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="n3P-rY-2yD" secondAttribute="trailing" constant="514" id="Pi9-Q0-hTW"/>
+                            <constraint firstAttribute="trailing" secondItem="WaA-ob-wJU" secondAttribute="trailing" id="Qyi-VC-ygd"/>
+                            <constraint firstItem="7fV-ov-L7O" firstAttribute="centerX" secondItem="UMa-eB-Ab9" secondAttribute="centerX" id="RNC-xq-63v"/>
+                            <constraint firstItem="jxv-VB-H7T" firstAttribute="top" secondItem="WaA-ob-wJU" secondAttribute="bottom" id="Ux8-d8-T2L"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="n3P-rY-2yD" secondAttribute="leading" id="WeP-I5-3cc"/>
+                            <constraint firstItem="7fV-ov-L7O" firstAttribute="centerY" secondItem="UMa-eB-Ab9" secondAttribute="centerY" id="ZZJ-jO-WrP"/>
+                            <constraint firstItem="WaA-ob-wJU" firstAttribute="leading" secondItem="UMa-eB-Ab9" secondAttribute="leading" id="cpE-Bg-rjL"/>
+                            <constraint firstItem="n3P-rY-2yD" firstAttribute="top" secondItem="jel-s5-6qB" secondAttribute="bottom" constant="8" id="mGB-Ez-sZ0"/>
+                            <constraint firstItem="WaA-ob-wJU" firstAttribute="top" secondItem="jel-s5-6qB" secondAttribute="bottom" id="v0O-91-gKn"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Pi9-Q0-hTW"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="7fV-ov-L7O" id="dpD-rS-W7j"/>
+                        <outlet property="trailImage" destination="WaA-ob-wJU" id="1Py-Ie-1mk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2fh-qd-HIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="YqP-hJ-RvJ">
+                    <connections>
+                        <action selector="didTapTrailImage:" destination="Lgn-jW-3AW" id="A7e-MO-Ha5"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3025" y="310"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kHk-vc-Q8L">
@@ -286,8 +354,9 @@
     </scenes>
     <resources>
         <image name="LinkIcon" width="22" height="22"/>
-        <image name="Undo" width="30" height="16"/>
-        <image name="ic_like" width="38" height="34"/>
+        <image name="PlaceHolder" width="320" height="320"/>
+        <image name="ic_like" width="33" height="33"/>
+        <image name="ic_revert" width="34" height="34"/>
         <image name="ic_skip" width="34" height="34"/>
     </resources>
     <color key="tintColor" red="0.68627450980000004" green="0.80784313730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
