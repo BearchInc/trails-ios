@@ -6,6 +6,7 @@ class ImagesProvider {
 	private var imageProviders: [ImageProvider]!
 	private var downloadedImageAtIndex = -1
 	private var onImageDownloaded: ((Int, UIImage) -> Void)
+	private var isStopped = false
 	
 	init(imagePaths: [String]!, imageDownloadedCallback: ((Int, UIImage) -> Void)) {
 		onImageDownloaded = imageDownloadedCallback
@@ -13,12 +14,20 @@ class ImagesProvider {
 	}
 	
 	func provide() {
-		if imageProviders.isEmpty {
+		guard shouldContinue() else {
 			return
 		}
 		
 		let provider = imageProviders.removeFirst()
 		provider.fetchImage()
+	}
+	
+	func stop() {
+		isStopped = true
+	}
+	
+	private func shouldContinue() -> Bool {
+		return !isStopped && !imageProviders.isEmpty
 	}
 	
 	private func urlToImageProvider(imagePath: String) -> ImageProvider {

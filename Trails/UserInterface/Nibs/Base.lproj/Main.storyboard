@@ -23,6 +23,7 @@
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-e0-ZVw">
                                         <rect key="frame" x="282" y="223" width="37" height="37"/>
+                                        <color key="color" red="0.68627450980000004" green="0.80784313730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -158,7 +159,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dkk-b1-Bds" userLabel="Story Image">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="dkk-b1-Bds" userLabel="Story Image">
                                                     <rect key="frame" x="1" y="1" width="98" height="98"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhQ-PD-ETl" userLabel="Title Label">
@@ -174,7 +175,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.68627450980000004" green="0.80784313730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="FhQ-PD-ETl" secondAttribute="trailing" constant="1" id="1QQ-jc-ash"/>
                                             <constraint firstItem="FhQ-PD-ETl" firstAttribute="leading" secondItem="eI4-7r-0GM" secondAttribute="leading" constant="1" id="3h0-Xj-0VU"/>
@@ -267,22 +268,24 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3P-rY-2yD" userLabel="Close Button">
-                                <rect key="frame" x="20" y="28" width="60" height="60"/>
+                                <rect key="frame" x="8" y="28" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8bk-VO-3MS"/>
                                     <constraint firstAttribute="width" constant="60" id="xgz-xH-stE"/>
                                 </constraints>
-                                <state key="normal" image="ic_skip"/>
+                                <state key="normal" image="Close"/>
                                 <connections>
                                     <action selector="didTapCloseButton:" destination="Lgn-jW-3AW" eventType="touchUpInside" id="j3W-nd-4tQ"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7fV-ov-L7O">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7fV-ov-L7O">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <color key="color" red="0.68627450980000004" green="0.80784313730000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="n3P-rY-2yD" firstAttribute="leading" secondItem="UMa-eB-Ab9" secondAttribute="leading" constant="8" id="0PW-kr-EdR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="n3P-rY-2yD" secondAttribute="trailing" constant="514" id="Pi9-Q0-hTW"/>
                             <constraint firstAttribute="trailing" secondItem="WaA-ob-wJU" secondAttribute="trailing" id="Qyi-VC-ygd"/>
                             <constraint firstItem="7fV-ov-L7O" firstAttribute="centerX" secondItem="UMa-eB-Ab9" secondAttribute="centerX" id="RNC-xq-63v"/>
@@ -290,12 +293,15 @@
                             <constraint firstAttribute="leadingMargin" secondItem="n3P-rY-2yD" secondAttribute="leading" id="WeP-I5-3cc"/>
                             <constraint firstItem="7fV-ov-L7O" firstAttribute="centerY" secondItem="UMa-eB-Ab9" secondAttribute="centerY" id="ZZJ-jO-WrP"/>
                             <constraint firstItem="WaA-ob-wJU" firstAttribute="leading" secondItem="UMa-eB-Ab9" secondAttribute="leading" id="cpE-Bg-rjL"/>
+                            <constraint firstItem="n3P-rY-2yD" firstAttribute="top" secondItem="jel-s5-6qB" secondAttribute="bottom" constant="8" id="fw7-zC-Hmr"/>
                             <constraint firstItem="n3P-rY-2yD" firstAttribute="top" secondItem="jel-s5-6qB" secondAttribute="bottom" constant="8" id="mGB-Ez-sZ0"/>
                             <constraint firstItem="WaA-ob-wJU" firstAttribute="top" secondItem="jel-s5-6qB" secondAttribute="bottom" id="v0O-91-gKn"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Pi9-Q0-hTW"/>
+                                <exclude reference="WeP-I5-3cc"/>
+                                <exclude reference="mGB-Ez-sZ0"/>
                             </mask>
                         </variation>
                     </view>
@@ -353,6 +359,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Close" width="22" height="22"/>
         <image name="LinkIcon" width="22" height="22"/>
         <image name="PlaceHolder" width="320" height="320"/>
         <image name="ic_like" width="33" height="33"/>

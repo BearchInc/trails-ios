@@ -56,4 +56,8 @@ class StoryCell: UICollectionViewCell {
 			}, completion: nil)
 	}
 	
+	override func prepareForReuse() {
+		self.mainImage.image = UIImage(named: "PlaceHolder")
+	}
+	
 }
