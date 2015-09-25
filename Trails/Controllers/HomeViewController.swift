@@ -31,6 +31,11 @@ class HomeViewController: UIViewController {
 	}
 	
 	private func setupTrailDataSource() {
+		
+		if kolodaView.dataSource is TrailDataSource {
+			return
+		}
+		
 		kolodaView.dataSource = trailDataSource
 		kolodaView.resetCurrentCardNumber()
 		fetchNextEvaluation()
