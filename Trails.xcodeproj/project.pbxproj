@@ -636,6 +636,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FLAVOR = "\\\"dev\\\"";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -662,6 +663,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_BITCODE = YES;
 				FLAVOR = "\\\"appstore\\\"";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -769,6 +771,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ENABLE_BITCODE = YES;
 				FLAVOR = "\\\"staging\\\"";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
